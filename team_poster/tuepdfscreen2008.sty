@@ -80,6 +80,8 @@
 \newcommand{\CommitteeText}{}
 %\newcommand{\Committee}[2]{\renewcommand{\CommitteeText}{\begin{tabular}[t]{l} \bf #1 \\[1ex] \bf{Master's thesis committee:} \\[.7ex] #2 \end{tabular}} }
 \newcommand{\Committee}[1]{\renewcommand{\CommitteeText}{\begin{tabular}[t]{l} #1 \end{tabular}} } % Modified for Tech United Poster
+\newcommand{\SponsorsText}{}
+\newcommand{\Sponsors}[1]{\renewcommand{\SponsorsText}{\begin{tabular}[t]{l} #1 \end{tabular}}} % Modified for Sponsors on Tech United Poster
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareOption{dvips}{\setcounter{driver}{1}\@dvipstrue\@whitebgtrue\@handoutstrue\renewcommand{\spp}{2}}
 \DeclareOption{nocfg}{\@nocfgtrue}
@@ -786,20 +788,39 @@
             }%
             }%
           }
+          % This is placed to the right of the surface, but behind if wide enough
           %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
           % modified by Erik Steur and Rob Mestrom
 
-          {  % Logo and PhD student data
-          \pgftext[at=\pgfpoint{\the\screenwidth-3mm}{\the\screenheight-41mm},center,right]{\CommitteeText}% O
-          }
+%          {  % Logo and PhD student data
+%          \pgftext[at=\pgfpoint{\the\screenwidth-3mm}{\the\screenheight-41mm},center,right]{\CommitteeText}% O
+%          }
           %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
           \pgfsetcolor{themecolor}
-          % red surface at top of the slide
+          % themecolored surface at top of the slide
           \pgfpathmoveto{\pgfpoint{5mm}{\the\screenheight-60mm}}
           \pgfpathlineto{\pgfpoint{\the\screenwidth-72.8mm}{\the\screenheight-60mm}}
           \pgfpathlineto{\pgfpoint{\the\screenwidth-61.6mm}{\the\screenheight-21mm}}
           \pgfpathlineto{\pgfpoint{5mm}{\the\screenheight-21mm}}
           \pgfusepath{fill}
+
+          % This is placed in front of the top surface
+          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          % modified by Matthijs van der Burgh
+
+          {  % Logo and PhD student data
+          \pgftext[at=\pgfpoint{\the\screenwidth-61.6mm}{\the\screenheight-41mm},center,right]{\CommitteeText}
+          }
+          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+          % This is placed right of the colored surface
+          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          % modified by Matthijs van der Burgh
+
+          {  % Logo and PhD student data
+          \pgftext[at=\pgfpoint{\the\screenwidth-61.6mm}{\the\screenheight-41mm},center,left]{\SponsorsText}
+          }
+          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
           % horizontal line top
           \pgfsetcolor{tuered}
