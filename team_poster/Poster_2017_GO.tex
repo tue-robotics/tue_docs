@@ -15,6 +15,7 @@
 \usepackage{graphicx}
 \usepackage{enumitem}
 \usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage{lipsum}
 
 %% For posterboxes?
 %\usepackage[orientation=portrait,size=a4,scale=1.0]{beamerposter}
@@ -103,14 +104,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \slidetitle[RoboCup~German~Open~2017]{\vspace{10mm} Tech United Eindhoven}
 
-\begin{multicols*}{2}
+\begin{multicols}{2}
 
-\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue, epBarre = 0, logo=\emptylogo]{\textcolor{tuedarkblue}{AMIGO \& SERGIO}}
+\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{AMIGO \& SERGIO}}
 \medskip %\bigskip
 \begin{minipage}[T]{0.48\linewidth}
 	\begin{center}
 		\includegraphics[height=4cm]{Figures/amigo_hospital72}
-		\figcaption{AMIGO}
+		\figcaption{AMIGO\the\premulticols}
 	\end{center}
 \end{minipage}
 \hfill
@@ -134,10 +135,10 @@
     \end{itemize}
 \end{bclogo}
 
-\vspace{0.3cm}
-\vspace{-1cm} % remove when compiling on linux
+%\vspace{0.2cm}
+\vspace{-0.8cm} % remove when compiling on linux
 
-\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue, epBarre = 0, logo=\emptylogo]{\textcolor{tuedarkblue}{Improved manipulation}}
+\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{Improved manipulation}}
 \medskip %\bigskip
 \begin{minipage}[T]{0.48\textwidth}
     \begin{center}
@@ -159,10 +160,10 @@
 \end{itemize}
 \end{bclogo}
 
-\vspace{0.3cm}
-\vspace{-1cm} % remove when compiling on linux
+%\vspace{0.2cm}
+\vspace{-0.8cm} % remove when compiling on linux
 
-\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue, epBarre = 0, logo=\emptylogo]{\textcolor{tuedarkblue}{Image recognition}}
+\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{Image recognition}}
 \medskip %\bigskip
 \begin{minipage}[T]{\textwidth}
     \begin{center}
@@ -179,10 +180,12 @@
 \end{itemize}
 \end{bclogo}
 
-\vfill
+%\vspace{-0.4cm}
+\vfill/none
+\columnbreak
 % end of left column
 
-\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue, epBarre = 0, logo=\emptylogo]{\textcolor{tuedarkblue}{World modeling}}
+\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{World modeling}}
 \medskip %\bigskip
 \begin{minipage}[T]{\textwidth}
     \begin{center}
@@ -207,10 +210,10 @@
 \end{itemize}
 \end{bclogo}
 
-\vspace{0.2cm}
-\vspace{-1.cm} % remove when compiling on linux
+%\vspace{0.2cm}
+\vspace{-0.83cm} % remove when compiling on linux
 
-\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue, epBarre = 0, logo=\emptylogo]{\textcolor{tuedarkblue}{WebGUI}}
+\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{WebGUI}}
 \medskip %\bigskip
 \begin{minipage}[T]{\textwidth}
     \begin{center}
@@ -229,10 +232,10 @@
 \end{itemize}
 \end{bclogo}
 
-\vspace{0.2cm}
-\vspace{-1.1cm} % remove when compiling on linux
+%\vspace{0.2cm}
+\vspace{-0.83cm} % remove when compiling on linux
 
-\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue, epBarre = 0, logo=\emptylogo]{\textcolor{tuedarkblue}{Natural language interpretation}}
+\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue, barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{Natural language interpretation}}
 \medskip %\bigskip
 \begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
 	\item Natural Language Interpretation using Feature Context Free Grammar
@@ -240,10 +243,8 @@
 \end{itemize}
 \end{bclogo}
 
-\vspace{0.2cm}
-%\vfill
-
-\end{multicols*}
+\includegraphics[width=0pt]{Figures/Empty}
+\end{multicols}
 \end{slidetop}
 
 \end{document}
