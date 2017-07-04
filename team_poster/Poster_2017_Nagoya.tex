@@ -106,18 +106,27 @@
 
 \begin{multicols}{2}
 
-\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{AMIGO \& SERGIO}}
+\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{AMIGO, SERGIO \& HERO}}
 \medskip %\bigskip
-\begin{minipage}[T]{0.48\linewidth}
+\begin{minipage}[T]{0.35\linewidth}
 	\begin{center}
 		\includegraphics[height=4cm]{Figures/amigo_hospital72}
-		\figcaption{AMIGO\the\premulticols}
+		\figcaption{AMIGO}
 	\end{center}
 \end{minipage}
-\hfill
-\begin{minipage}[T]{0.48\linewidth}
+%\hfill
+%\hspace{-0.6cm}
+\begin{minipage}[T]{0.35\linewidth}
     \begin{center}
-    	\includegraphics[height=4cm]{Figures/SERGIO}
+    	\includegraphics[height=4cm]{Figures/HSR}
+        \figcaption{HERO}
+    \end{center}
+\end{minipage}
+%\hfill
+%\hspace{-0.6cm}
+\begin{minipage}[T]{0.29\linewidth}
+    \begin{center}
+    	\includegraphics[height=4cm]{Figures/SERGIO_small}
         \figcaption{SERGIO}
     \end{center}
 \end{minipage}
@@ -131,7 +140,7 @@
     		\item Suspended mecanum wheels, 2 DoF torso
     	\end{itemize}
         \item 7-DoF manipulators
-        \item Designs available at Robotic Open Platform
+        %\item Designs available at Robotic Open Platform
     \end{itemize}
 \end{bclogo}
 
@@ -154,7 +163,7 @@
 \begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
 	\item Empty spot designator
     \begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
-		\item Incorporating current position
+		\item Incorporates robot \& object positions
 	\end{itemize}
 	\item Grasping point determination
 \end{itemize}
@@ -165,18 +174,32 @@
 
 \begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{Image recognition}}
 \medskip %\bigskip
-\begin{minipage}[T]{\textwidth}
+\begin{minipage}[T]{0.48\linewidth}
+	\begin{center}
+		\includegraphics[height=2.7cm]{Figures/openface}
+		%\figcaption{}
+	\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[T]{0.48\linewidth}
     \begin{center}
-        \includegraphics[width=0.9\linewidth]{Figures/cnn}
+    	\includegraphics[height=2.7cm]{Figures/openpose}
+        %\figcaption{}
     \end{center}
 \end{minipage}
+%\begin{minipage}[T]{\textwidth}
+%    \begin{center}
+%        \includegraphics[width=0.9\linewidth]{Figures/cnn}
+%    \end{center}
+%\end{minipage}
 \begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
 	\item Object recognition using Deep Learning
 	\item Face recognition: Openface based on Torch
+    \item Pose recognition: OpenPose
     \item ROS-packages: ros-kinetic-image-recognition
-    \begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
-		\item Including training and test GUIs
-	\end{itemize}
+ %   \begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
+%		\item Including training and test GUIs
+%	\end{itemize}
 \end{itemize}
 \end{bclogo}
 
@@ -238,8 +261,8 @@
 \begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue, barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{Natural language interpretation}}
 \medskip %\bigskip
 \begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
-	\item Natural Language Interpretation using Feature Context Free Grammar
-	\item Speech recognition grammars are deduced from the NLI grammars
+	\item Natural Language Interpretation using Feature Context Free Grammar (FCFG)
+	\item Speech recognition grammars are generated from FCFG
 \end{itemize}
 \end{bclogo}
 
