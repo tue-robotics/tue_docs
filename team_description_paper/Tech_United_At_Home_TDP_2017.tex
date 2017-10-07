@@ -1,0 +1,158 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% file typeinst.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the LaTeX source for the TDPTemplate using
+% the LaTeX document class 'llncs.cls' Springer LNAI format
+% used in the RoboCup Symposium submissions.
+% http://www.springer.com/computer/lncs?SGWID=0-164-6-793341-0
+%
+% It may be used as a template for your own TDP - copy it
+% to a new file with a new name and use it as the basis
+% for your Team Description Paper
+%
+% NB: the document class 'llncs' has its own and detailed documentation, see
+% ftp://ftp.springer.de/data/pubftp/pub/tex/latex/llncs/latex2e/llncsdoc.pdf
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[runningheads,a4paper]{llncs}
+
+% document input
+\usepackage[utf8]{inputenc}		% input encoding
+\usepackage[english]{babel}		% input language for hyphens
+
+% fonts
+\usepackage[T1]{fontenc}		% more glyphs and a
+\usepackage{lmodern}			% better looking font
+
+% page geometry
+%\usepackage{a4wide}
+%\usepackage{a4}
+%\usepackage[left=48mm,right=46mm]{geometry}
+\usepackage[left=32mm,right=31mm]{geometry}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\setcounter{tocdepth}{3}
+
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{float}
+
+\usepackage{url}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{textcomp}
+
+% *** MORE GRAHPICS ***
+\usepackage[usenames,dvipsnames]{color}
+
+% *** BIBLIOGRAPHY PACKAGES ***
+%\usepackage{natbib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{booktabs}           % For tables (toprule, midrule, bottomrule)
+\usepackage{todonotes}			% should be defined after the color package
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% *** PATHS ***
+\makeatletter
+\def\input@path{{Figures/}		
+				}
+\makeatother
+
+\graphicspath{  {Figures/}
+				}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Acronym definitions
+\usepackage[acronym]{glossaries}
+\newacronym{ed}{ED}{Environment Descriptor}
+\newacronym{amcl}{AMCL}{Adaptive Monte Carlo Localization}
+\newacronym{gui}{GUI}{Graphical User Interface}
+%\newacronym{spl}{SPL}{Standard Platform League}
+\newacronym{fcfg}{FCFG}{feature context free grammar}
+\newacronym{ros}{ROS}{Robot Operating System}
+\newacronym{wire}{WIRE}{World Information for Robotic Environments}
+\newacronym{cnn}{CNN}{Convolution Neural Networks}
+
+% shorthand definitions
+\newcommand{\eg}{\emph{e.g.}}						% Exemplum gratia
+\newcommand{\goal}{\mathcal{G}}						% Goal area
+\newcommand{\goallc}{\mathcal{G}_{\mathrm{lc}}}		% Subset of goal area with costs below threshold cmin
+\newcommand{\goalhc}{\mathcal{G}_{\mathrm{hc}}}		% Subset of goal area with costs above threshold cmin
+\newcommand{\ie}{\emph{i.e.}}						% Id est
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{Tech United Eindhoven @Home \\2017 Team Description Paper}
+\author{M.F.B.~van~der~Burgh, J.J.M.~Lunenburg, R.P.W.~Appeldoorn, R.W.J.~Wijnands, T.T.G.~Clephas, M.J.J.~Baeten, L.L.A.M.~van~Beek, R.A.~Ottervanger, H.W.A.M.~van~Rooy and M.J.G.~van~de~Molengraft}
+\institute{Eindhoven University of Technology,
+\newline Den Dolech 2, P.O. Box 513, 5600 MB Eindhoven, The Netherlands\\
+\texttt{http://www.techunited.nl, techunited@tue.nl, https://github.com/tue-robotics}}
+\authorrunning{Tech United Eindhoven}
+
+%\author{Team Leader \and Team Members }
+%\institute{[Intitute name and direction here], \\
+%\texttt{http://devoted-web-site.url}}
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstract}
+This paper provides an overview of the main developments of the Tech United Eindhoven RoboCup@Home team. Tech United uses an advanced world modeling representation system called the Environment Descriptor that allows straight forward implementation of localization, navigation, exploration, object detection \& recognition, object manipulation and robot-robot cooperation skills. Recently developments are improved object detection via deep learning methods, a generic GUI for different user levels, improved speech recognition and improved natural language interpretation.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+\input{introduction.tex}
+
+\section{\acrfull{ed}}
+\input{ed.tex}
+
+\subsection{Localization, Navigation and Exploration}
+\input{navigation_exploration.tex}
+
+\subsection{Object detection}
+\input{object_detection.tex}
+
+\subsection{Object grasping, moving and placing}
+\input{object_grasping_moving.tex}
+
+\section{Image Recognition}
+\input{object_recognition.tex}
+
+%\subsection{Reasoning}
+%\input{reasoning.tex}
+
+%\newpage
+\section{Human-Robot Interface}
+\input{webgui.tex}
+
+\section{Robot Descriptions}
+\subsection{Robot Hardware Descriptions}
+\input{hardware.tex}
+
+\subsection{Robot Software Description}
+\input{software.tex}
+
+\subsection{Re-usability of the system for other research groups}
+\input{reusability.tex}
+
+\subsection{Community Outreach and Media}
+\input{community_outreach_media.tex}
+
+\bibliographystyle{unsrt}
+\bibliography{refs}
+
+\end{document}
