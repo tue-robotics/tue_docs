@@ -12,7 +12,7 @@ In order the classify or train unknown entities, the ed\_perception plugin\footn
 \subsection{Object recognition using Deep Learning}
 Object recognition is done using Tensorflow: retraining the top-layer of a Inception V3 neural network. The top layers are retrained on a custom dataset using a soft-max top-layer that maps the image representation on a specified set of labels.
 \\
-In order to create a new training set for specific objects, the ed\_perception and the image\_recognition packages contains several tools for segmenting and annotating objects. Also tools for retraining neural networks are included.
+In order to create a new training set for specific objects, the ed\_perception and the image\_recognition packages contain several tools for segmenting and annotating objects. Also tools for retraining neural networks are included.
 
 \subsection{Face recognition}
 Face detection and recognition is done using Openface based on Torch. Openface is an existing state-of-the-art face recognition library. We implemented a ROS node that enables the use of these advanced technologies within the ROS network.
