@@ -1,6 +1,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%% file typeinst.tex %%%%%%%%%%%%%%%%%%%%%%%%%
 %
+% Template author: Mauricio Matamoros
+% Updated: July 3, 2017
+% Contact: mauricio@robocupathome.org
+%
 % This is the LaTeX source for the TDPTemplate using
 % the LaTeX document class 'llncs.cls' Springer LNAI format
 % used in the RoboCup Symposium submissions.
@@ -13,49 +17,51 @@
 % NB: the document class 'llncs' has its own and detailed documentation, see
 % ftp://ftp.springer.de/data/pubftp/pub/tex/latex/llncs/latex2e/llncsdoc.pdf
 %
+% Remark: Last page with specs won't be included in Camera ready TDP's.
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% TU/e update: 27 oct 2017 - HvR
 
 \documentclass[runningheads,a4paper]{llncs}
-
-% document input
-\usepackage[utf8]{inputenc}		% input encoding
-\usepackage[english]{babel}		% input language for hyphens
-
-% fonts
-\usepackage[T1]{fontenc}		% more glyphs and a
-\usepackage{lmodern}			% better looking font
-
-% page geometry
-%\usepackage{a4wide}
-%\usepackage{a4}
 %\usepackage[left=48mm,right=46mm]{geometry}
 \usepackage[left=32mm,right=31mm]{geometry}
 
+\usepackage[utf8]{inputenc}
 \usepackage{amssymb}
-\usepackage{amsmath}
 \setcounter{tocdepth}{3}
-
-
-\usepackage{hyperref}
-\usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
-\captionsetup{compatibility=false}
-\usepackage{float}
-
 \usepackage{url}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{fancyhdr}
+\usepackage{titling}
+%\usepackage{lipsum}  		% a garbage package you don't need except to create examples.
+
+\input{macros}
+
+% added HvR - 27oct2017 - from last year's (2017) template
+\usepackage[english]{babel}		% input language for hyphens
+%\usepackage{caption}
+%\usepackage{subcaption}
+%\captionsetup{compatibility=false}
 \usepackage{listings}
 \usepackage{enumitem}
 \usepackage{textcomp}
+\usepackage{hyperref}
+%\usepackage{authblk}
+
+% fonts
+%\usepackage[T1]{fontenc}		% more glyphs and a
+%\usepackage{lmodern}			% better looking font
 
 % *** MORE GRAHPICS ***
 \usepackage[usenames,dvipsnames]{color}
 
-% *** BIBLIOGRAPHY PACKAGES ***
-%\usepackage{natbib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{booktabs}          		% For tables (toprule, midrule, bottomrule)
+\usepackage{booktabs}   			% For tables (toprule, midrule, bottomrule)
 \usepackage{todonotes}			% should be defined after the color package
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -65,8 +71,7 @@
 \def\input@path{{Figures/}		
 				}
 \makeatother
-
-\graphicspath{  {Figures/}
+\graphicspath{{Figures/}
 				}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -91,44 +96,65 @@
 \newcommand{\ie}{\emph{i.e.}}						% Id est
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Title
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
+\setlength{\headheight}{22pt}
+
 \title{Tech United Eindhoven @Home \\2018 Team Description Paper}
-\author{M.F.B.~van~der~Burgh, J.J.M.~Lunenburg, R.P.W.~Appeldoorn, R.W.J.~Wijnands, T.T.G.~Clephas, M.J.J.~Baeten, L.L.A.M.~van~Beek, R.A.~Ottervanger, S.~Aleksandrov, T.~Assman, K.~Dang, J.~Geijsberts, L.G.L.~Janssen, H.W.A.M.~van~Rooy, A.T. Hofkamp and M.J.G.~van~de~Molengraft}
-\institute{Eindhoven University of Technology,
-\newline Den Dolech 2, P.O. Box 513, 5600 MB Eindhoven, The Netherlands\\
+
+\author{M.F.B.~van~der~Burgh , J.J.M.~Lunenburg, R.P.W.~Appeldoorn, R.W.J.~Wijnands, \and
+T.T.G.~Clephas, M.J.J.~Baeten, L.L.A.M.~van~Beek, R.A.~Ottervanger, \and
+S.~Aleksandrov, T.~Assman, K.~Dang, J.~Geijsberts, L.G.L.~Janssen, \and
+H.W.A.M.~van~Rooy, A.T. Hofkamp and M.J.G.~van~de~Molengraft}
+
+\institute{Eindhoven University of Technology,\\
+Den Dolech 2, P.O. Box 513, 5600 MB Eindhoven, The Netherlands\\
 \texttt{http://www.techunited.nl, techunited@tue.nl, https://github.com/tue-robotics}}
+
 \authorrunning{Tech United Eindhoven}
 
 %\author{Team Leader \and Team Members }
-%\institute{[Intitute name and direction here], \\
+%\institute{[Institute name and direction here], \\
 %\texttt{http://devoted-web-site.url}}
+
 \maketitle
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Abstract
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{abstract}
-TODO list:\\
-Sound source localisation\\
-OpenPose\\
-Plans for this year?\\
-Clean-up of old stuff, reduce size. Increase size new parts.\\
-SERGIO in/out?\\
-New template: \url{https://github.com/RoboCupAtHome/TDPTemplate/tree/template2018}\\
-8 pages\\
 
-Video:\\
-Sound source localisation\\
-OpenPose\\
-Remove old stuff.\\
-Remove ugly video stuff\\
+%TODO list:\\
+%Sound source localisation\\
+%OpenPose\\
+%Plans for this year?\\
+%Clean-up of old stuff, reduce size. Increase size new parts.\\
+%SERGIO in/out?\\
+%New template: \url{https://github.com/RoboCupAtHome/TDPTemplate/tree/template2018}\\
+%8 pages\\
+
+%Video:\\
+%Sound source localisation\\
+%OpenPose\\
+%Remove old stuff.\\
+%Remove ugly video stuff\\
 
 
 
-TODO: UPDATE
-This paper provides an overview of the main developments of the Tech United Eindhoven RoboCup@Home team. Tech United uses an advanced world modeling representation system called the Environment Descriptor that allows straight forward implementation of localization, navigation, exploration, object detection \& recognition, object manipulation and robot-robot cooperation skills. Recently developments are improved object detection via deep learning methods, a generic GUI for different user levels, improved speech recognition and improved natural language interpretation.
+TODO: UPDATE \\
+This paper provides an overview of the main developments of the Tech United Eindhoven RoboCup@Home team. Tech United uses an advanced world modeling representation system called the Environment Descriptor that allows straight forward implementation of localization, navigation, exploration, object detection \& recognition, object manipulation and robot-robot cooperation skills. Recent developments are improved object detection via deep learning methods, a generic GUI for different user levels, improved speech recognition, improved natural language interpretation and sound source localization.
+
 \end{abstract}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -160,12 +186,12 @@ This paper provides an overview of the main developments of the Tech United Eind
 \section{Human-Robot Interface}
 \input{webgui.tex}
 
-\section{Robot Descriptions}
-\subsection{Robot Hardware Descriptions}
-\input{hardware.tex}
+%\section{Robot Descriptions}
+%\subsection{Robot Hardware Descriptions}
+%\input{hardware.tex}
 
-\subsection{Robot Software Description}
-\input{software.tex}
+%\subsection{Robot Software Description}
+%\input{software.tex}
 
 \subsection{Re-usability of the system for other research groups}
 \input{reusability.tex}
@@ -173,7 +199,35 @@ This paper provides an overview of the main developments of the Tech United Eind
 \subsection{Community Outreach and Media}
 \input{community_outreach_media.tex}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Bibliography\usepackage{graphicx}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Bibliography}
 \bibliographystyle{unsrt}
 \bibliography{refs}
 
-\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Robot Specifications
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\robospecs
+%\input{RobotDescriptionDSPL}
+%\newpage
+%\input{RobotDescriptionOPL}
+\subsection{Robot Hardware Descriptions}
+\input{hardware.tex}
+\newpage
+\subsection{Robot Software Description}
+\input{software.tex}
+%\input{RobotDescriptionSSPL}
+
+\nocite{*}
+
+\end{document} 
