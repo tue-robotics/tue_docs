@@ -36,33 +36,17 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{fancyhdr}
-%\usepackage{titling}
+%\usepackage{titling}       % not used, messes up the titlepage!
 %\usepackage{lipsum}  		% a garbage package you don't need except to create examples.
 
 \include{macros}
 
 % added HvR - 27oct2017 - from last year's (2017) template
-\usepackage[english]{babel}		% input language for hyphens
-%\usepackage{caption}
-%\usepackage{subcaption}
-%\captionsetup{compatibility=false}
+\usepackage[english]{babel}	% input language for hyphens
 \usepackage{listings}
 \usepackage{enumitem}
-\usepackage{textcomp}
-%\usepackage{hyperref}
-
-% fonts
-\usepackage[T1]{fontenc}		% more glyphs and a
-\usepackage{lmodern}			% better looking font
-
-% *** MORE GRAHPICS ***
-\usepackage[usenames,dvipsnames]{color}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{booktabs}   			% For tables (toprule, midrule, bottomrule)
-%\usepackage{todonotes}			% should be defined after the color package
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{hyperref}      % not used, messes up almost all the figures!
+\usepackage{booktabs}   	% For tables (toprule, midrule, bottomrule)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % *** PATHS ***
@@ -95,7 +79,6 @@
 \newcommand{\ie}{\emph{i.e.}}						% Id est
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\usepackage{hyperref}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Title
@@ -157,6 +140,7 @@ This paper provides an overview of the main developments of the Tech United Eind
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
+
 \section{Introduction}
 \input{introduction.tex}
 
@@ -185,12 +169,6 @@ This paper provides an overview of the main developments of the Tech United Eind
 \section{Human-Robot Interface}
 \input{webgui.tex}
 
-%\section{Robot Descriptions}
-%\subsection{Robot Hardware Descriptions}
-%\input{hardware.tex}
-%
-%\subsection{Robot Software Description}
-%\input{software.tex}
 
 \subsection{Re-usability of the system for other research groups}
 \input{reusability.tex}
@@ -209,7 +187,6 @@ This paper provides an overview of the main developments of the Tech United Eind
 \bibliographystyle{unsrt}
 \bibliography{refs}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Robot Specifications
@@ -217,15 +194,12 @@ This paper provides an overview of the main developments of the Tech United Eind
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \robospecs
-%%\input{RobotDescriptionDSPL}
 %\newpage
-\input{RobotDescriptionOPL}
-%\subsection{Robot Hardware Descriptions}
-\input{hardware.tex}
+%%\input{RobotDescriptionDSPL}
 \newpage
-\subsection{Robot Software Description}
-\input{software.tex}
-%%\input{RobotDescriptionSSPL}
-%
-\nocite{*}
-\end{document} 
+\input{RobotDescriptionOPL}
+
+
+
+\end{document}
+ 
