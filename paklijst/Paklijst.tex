@@ -3,9 +3,9 @@
 \usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{float}
-\usepackage{tabularx} 
+\usepackage{tabularx}
 \usepackage{hhline}
-\usepackage{booktabs} 
+\usepackage{booktabs}
 \usepackage[table]{xcolor}
 \usepackage{listings}
 %\usepackage{array}
@@ -80,11 +80,11 @@ Met AMIGO kunnen ruwweg 2 verschillende soorten demo's gegeven worden, een inter
 		\item Neem 12 losse batterijen mee. Dit geeft dus een totaal van 16 batterijen inclusief de 4 baterijen in de robot
 		\item \textbf{Let op!} De batterijen in de robot moeten 1 voor 1 gewisseld worden. Er mag om geen enkele reden meer dan 1 batterij uit de robot zijn.
 		\item \textbf{Tip:} Leg de batterijen die leeg zijn op een zijkant  en de batterijen die vol zijn op de achterkant (met de contact punten naar boven gericht), zo is het heel makkelijk te zien welke batterijen vol zijn en welke batterijen niet.
-	\end{itemize} 
+	\end{itemize}
 	\item Tablet
 	    \item Demo object set
 	    \begin{itemize}
-	    	\item Cola blikje 
+	    	\item Cola blikje
 	    	\item Fanta blikje
 	    	\item Ice tea blikje
 	    	\item Pringels bus
@@ -113,51 +113,55 @@ Met AMIGO kunnen ruwweg 2 verschillende soorten demo's gegeven worden, een inter
 			
 				\begin{figure}[H]
 					\centering
-					\includegraphics[width=0.3\textwidth]{hallwaytable}
+					\includegraphics[width=0.3\textwidth]{Figures/hallwaytable}
 				\end{figure}
 			
 			\item Couch table
 				\begin{figure}[H]
 					\centering
-					\includegraphics[width=0.3\textwidth]{couchtable}
+					\includegraphics[width=0.3\textwidth]{Figures/couchtable}
 				\end{figure}			
 			
 			\item Bar
 				\begin{figure}[H]
 					\centering
-					\includegraphics[width=0.3\textwidth]{bar}
+					\includegraphics[width=0.3\textwidth]{Figures/bar}
 				\end{figure}			
 			
 			\item Cabinet
 					\begin{figure}[H]
 						\centering
-						\includegraphics[width=0.25\textwidth]{cabinet}
+						\includegraphics[width=0.25\textwidth]{Figures/cabinet}
 					\end{figure}	
 			
 			\item Dinner table
 				\begin{figure}[H]
 					\centering
-					\includegraphics[width=0.25\textwidth]{dinnertable}
+					\includegraphics[width=0.25\textwidth]{Figures/dinnertable}
 				\end{figure}		
-		\end{itemize} 
-	\item Amigo flight case. Om AMIGO reis bestendig te maken moeten onderstaande stappen gevolgd worden:
+		\end{itemize}
+	\item AMIGO flight case. Om AMIGO reis bestendig te maken moeten onderstaande stappen gevolgd worden:
 		\begin{itemize}
-		\item Home alle onderdelen van AMIGO en zet de robot uit.
+		\item Zet de armen van AMIGO in de reset positie en verlaag het torso naar de juiste stand met: ALIAS\_XXX.
+        \item Zet AMIGO uit. Houd de externe schakelaar $1$ \`a $2$ seconden vast. Druk daarna de pc's uit door de power knop $2$ seconden ingedrukt te houden.
 		\item Doe de kappen over de batterijen van AMIGO indien dit nog niet het geval is.
 		\item Open the flight case door aan de sluitingen aan de zijkant te draaien.
-		\item Til \textbf{voorzichtig} de bovenste helft van de onderste helft van de casing en leg alle onderdelen die in de casing zitten voorlopig even aan de kant.
+		\item Til \textbf{voorzichtig} de bovenste helft van de onderste helft van de casing en leg alle onderdelen die in de casing zitten voorlopig even aan de kant/in de deksel.
 		\item Open de voorkant van de onderste helft van de casing, wederom door aan de sluitingen te draaien.
 		\item Leg zo veel mogelijk batterijen in de lege ruimte aan de onderkant van de casing.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.7]{batteries}
+			\includegraphics[scale=0.7]{Figures/batteries}
 		\end{figure}
-		\item Draai het dopje in the loopplank los en klap de loopplank uit. \textbf{Let op!} Leg het dopje even weg maar vergeet niet waar ze liggen natuurlijk!
-		\item Rijd AMIGO handmatig de loopplank op en til hem op de juiste plek.
-		\item Klem de spindel van AMIGO vast aan de casing (deze klem zit op 'buik' hoogte).
+		\item Draai het dopje in de rij-plank los en klap de rij-plank uit. \textbf{Let op!} Leg het dopje even weg maar vergeet niet waar ze liggen natuurlijk!
+		\item Rijd AMIGO handmatig de rijplank op en til hem op de juiste plek. Doe dit met minimaal $3$ personen.
+        \item Kantel AMIGO iets naar voren en klap de rijplank weer terug.
+        \item Bevestig de zwarte nekklem om de buis.
+        \item Kantel AMIGO iets naar achteren en klap de steun richting de zwarte nekklem. \textbf{Voorkom contact tussen de steun en de torso kappen.}
+		\item Verbind de steun aan de zwarte nekklem.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[scale = 0.8]{klem}
+			\includegraphics[scale = 0.8]{Figures/klem}
 		\end{figure}
 		\item Klap de loopplank weer in en draai het dopje weer vast.
 		\item Draai de microfoon (op het 'hoofd' van AMIGO) zodat deze in de zelfde richting staat als de kinect (de 'ogen'). Gebruik daarna de beschermende materialen in de vorm van een holle cylinder om de camera en de microfoon in te pakken.
@@ -165,15 +169,15 @@ Met AMIGO kunnen ruwweg 2 verschillende soorten demo's gegeven worden, een inter
 		\item Zet de achterkant van AMIGO vast door de houten blokjes vast te draaien met de bijbehorende schroeven.
 		\item Schuif de foam blokken \textbf{voorzichtig} op de juiste plekken in de casing. \textbf{Let op!} Zorg ervoor dat de handen van AMIGO niet beschadigen of gedraaid worden.
 		\item Doe de onderkant van de casing weer dicht door aan de sluitingen te draaien.
-		\item Draai de dopjes uit de planken met de batterij opladers er op. 
-		Til deze planken \textbf{voorzichtig} in de casing en draai de dopjes goed aan de casing. 
+		\item Draai de dopjes uit de planken met de batterij opladers er op.
+		Til deze planken \textbf{voorzichtig} in de casing en draai de dopjes goed aan de casing.
 
 		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.7]{amigo2}
+			\includegraphics[scale=0.7]{Figures/amigo2}
 		\end{figure}
 		\item Zet de top van de casing \textbf{HEEL VOORZICHTIG} weer terug op de onderkant en draai de sluitingen vast.
 		\end{itemize}
 
 \end{itemize}
-\end{document}
+\end{document} 
