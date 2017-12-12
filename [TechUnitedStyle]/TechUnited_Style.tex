@@ -1,0 +1,247 @@
+\usepackage{epstopdf}
+\usepackage{color}
+\usepackage{graphicx} % Allows including images
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{multicol}
+\usepackage{nameref}  % Package which allows us to read the current label
+\usepackage{caption}
+\usepackage{array}
+\usepackage{enumitem,xcolor} % TechUnitedItemize
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{media9}
+\usepackage{etoolbox}
+
+%% COLOR DEFINITIONS
+\definecolor{TechUnitedOrange}{rgb}{0.98, 0.659, 0.212}
+\definecolor{TechUnitedGreen}{rgb}{0.034, 0.619, 0.352}
+\newcommand{\Techemph}[1]{\textcolor{TechUnitedGreen}{#1}}
+\newcommand{\coloremph}[1]{\textcolor{blue}{#1}}
+
+%% TECH UNITED ITEMIZE
+\setbeamertemplate{itemize items}[circle]
+\newlist{TechUnitedItems}{itemize}{1}
+\setlist[TechUnitedItems]{label=\textcolor{TechUnitedGreen}{\textbullet}}
+
+%% TECH UNITED SHIELD
+\newcommand{\TechUnitedShield}[1]{
+	\iftoggle{#1}{ % 16_9
+
+	}{ % 4_3
+	\begin{textblock*}{2.6cm}(100mm,-3mm)
+			\begin{figure}
+				\centering
+				\includegraphics[width=2.6cm]{../[TechUnitedStyle]/Figures/Logo's/TechUnitedTransparant_burned.png}
+			\end{figure}
+	\end{textblock*}
+	}
+}
+
+\newcommand{\TechUnitedTitle}[1]{
+	\begin{textblock*}{\paperwidth}(10mm,4mm)
+		{\huge\textcolor{TechUnitedOrange}{#1}}
+	\end{textblock*}
+}
+\newcommand{\TechUnitedPicture}[2]{
+	\begin{textblock*}{\paperwidth}(-15mm,12.5mm)
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.65\linewidth,trim={0 20mm 0 80mm},clip]{#1}
+		\end{figure}
+	\end{textblock*}
+	\TechUnitedPictureText{#2}
+}
+
+\newcommand{\TechUnitedPictureNoText}[1]{
+	\begin{textblock*}{\paperwidth}(-15mm,12.5mm)
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.65\linewidth,trim={0 15mm 0 15mm},clip]{#1}
+		\end{figure}
+	\end{textblock*}
+}
+
+\newcommand{\TechUnitedPictureText}[1]{
+	\begin{textblock*}{35mm}(120mm,48mm)
+		\begin{center}
+			{\large "\textit{#1}"}
+		\end{center}
+	\end{textblock*}
+}
+
+\newcommand{\TechUnitedYoutube}[2]{
+	\iftoggle{#1}{ % 16_9
+		
+	}{ % 4_3
+		\begin{textblock*}{128mm}(0pt,13.2mm)
+			\includemedia[
+			width=128mm,height=75.1mm,
+			activate=pageopen,
+			flashvars={
+				modestbranding=1 % no YT logo in control bar
+				&autohide=1       % controlbar autohide
+				&showinfo=0       % no title and other info before start
+			}
+			]{}{#2}
+		\end{textblock*}
+	}
+}
+
+\newcommand{\TechUnitedMovie}[2]{
+	\iftoggle{#1}{ % 16_9
+		
+	}{ % 4_3
+		\begin{textblock*}{\paperwidth}(0pt,13.2mm)
+			\includemedia[
+			width=128mm,
+			height=75.1mm, % This used to be 75.1mm
+			activate=pageopen,
+			addresource=#2,
+			flashvars={source=#2}
+			]{}{VPlayer9.swf}
+		\end{textblock*}
+	}
+}
+
+\newcommand{\TechUnitedTitleBackground}[1]{
+	\usebackgroundtemplate{
+		\iftoggle{#1}{
+			\includegraphics[width=\paperwidth,height=\paperheight]{../[TechUnitedStyle]/Backgrounds/TitlePageTechUnited_16_9.eps}%
+		}{
+			\includegraphics[width=\paperwidth,height=\paperheight]{../[TechUnitedStyle]/Backgrounds/TitlePageTechUnited_4_3.eps}%
+		}
+	}
+}
+
+\newcommand{\TechUnitedTitlePage}[3]{
+	\begin{frame}
+		\iftoggle{#3}{
+	
+		}{
+			\begin{textblock*}{120mm}(0mm,12mm)
+				\begin{flushright}
+					\LARGE\textcolor{white}{\textbf{#1}}
+				\end{flushright}
+			\end{textblock*}
+			\begin{textblock*}{120mm}(0mm,24mm)
+				\begin{flushright}
+					\textcolor{white}{\textbf{By: #2}}
+				\end{flushright}
+			\end{textblock*}
+			\begin{textblock*}{3.0cm}(10mm,42mm)
+				\begin{figure}
+					\centering
+					\includegraphics[width=3.0cm]{../[TechUnitedStyle]/Figures/Logo's/TechUnitedTransparant_burned.png}
+				\end{figure}
+			\end{textblock*}
+			\begin{textblock*}{3.0cm}(10mm,78mm)
+				\begin{figure}
+					\centering
+					\includegraphics[width=3.0cm]{../[TechUnitedStyle]/Figures/Logo's/TUETransparent.png}
+				\end{figure}
+			\end{textblock*}
+			\begin{textblock*}{5mm}(50mm,53.5mm)
+				\includegraphics[width=\linewidth]{../[TechUnitedStyle]/Figures/TitlePageLogo's/Facebook.png}
+			\end{textblock*}
+			\begin{textblock*}{5mm}(50mm,61mm)
+				\includegraphics[width=\linewidth]{../[TechUnitedStyle]/Figures/TitlePageLogo's/Twitter.png}
+			\end{textblock*}
+			\begin{textblock*}{5mm}(50mm,67mm)
+				\includegraphics[width=\linewidth]{../[TechUnitedStyle]/Figures/TitlePageLogo's/Email.png}
+			\end{textblock*}
+			\begin{textblock*}{5mm}(50mm,74mm)
+				\includegraphics[width=\linewidth]{../[TechUnitedStyle]/Figures/TitlePageLogo's/Internet.png}
+			\end{textblock*}
+			\begin{textblock*}{50mm}(58mm,55mm)
+				\textcolor{white}{
+					Tech United Eindhoven \vspace{0.5em}\\
+					@TechUnited \vspace{0.5em}\\
+					techunited@tue.nl \vspace{0.5em}\\
+					www.techunited.nl
+				}
+			\end{textblock*}
+		}
+	\end{frame}
+}
+
+\newcommand{\TechUnitedFinalSlide}[1]{
+	\iftoggle{#1}{
+	}{
+		\begin{frame}
+			\begin{textblock*}{\paperwidth}(0mm,18mm)
+				{\begin{center}
+						\LARGE\textcolor{white}{\textbf{Thank you for your attention!}}
+					\end{center}
+				}
+			\end{textblock*}
+			\begin{textblock*}{3.0cm}(10mm,42mm)
+				\begin{figure}
+					\centering
+					\includegraphics[width=3.0cm]{../[TechUnitedStyle]/Figures/Logo's/TechUnitedTransparant_burned.png}
+				\end{figure}
+			\end{textblock*}
+			\begin{textblock*}{3.0cm}(10mm,78mm)
+				\begin{figure}
+					\centering
+					\includegraphics[width=3.0cm]{../[TechUnitedStyle]/Figures/Logo's/TUETransparent.png}
+				\end{figure}
+			\end{textblock*}
+			\begin{textblock*}{5mm}(50mm,53.5mm)
+				\includegraphics[width=\linewidth]{../[TechUnitedStyle]/Figures/TitlePageLogo's/Facebook.png}
+			\end{textblock*}
+			\begin{textblock*}{5mm}(50mm,61mm)
+				\includegraphics[width=\linewidth]{../[TechUnitedStyle]/Figures/TitlePageLogo's/Twitter.png}
+			\end{textblock*}
+			\begin{textblock*}{5mm}(50mm,67mm)
+				\includegraphics[width=\linewidth]{../[TechUnitedStyle]/Figures/TitlePageLogo's/Email.png}
+			\end{textblock*}
+			\begin{textblock*}{5mm}(50mm,74mm)
+				\includegraphics[width=\linewidth]{../[TechUnitedStyle]/Figures/TitlePageLogo's/Internet.png}
+			\end{textblock*}
+			\begin{textblock*}{50mm}(58mm,55mm)
+				\textcolor{white}{
+					Tech United Eindhoven \vspace{0.5em}\\
+					@TechUnited \vspace{0.5em}\\
+					techunited@tue.nl \vspace{0.5em}\\
+					www.techunited.nl
+				}
+			\end{textblock*}
+		\end{frame}
+	}
+}
+
+\newcommand{\TechUnitedSheetBackground}[1]{
+	\usebackgroundtemplate{
+		\iftoggle{#1}{
+			\includegraphics[width=\paperwidth,height=\paperheight]{../[TechUnitedStyle]/Backgrounds/TotalOverlay_16_9.eps}%
+		}{
+			\includegraphics[width=\paperwidth,height=\paperheight]{../[TechUnitedStyle]/Backgrounds/TotalOverlay_4_3.eps}%
+		}
+	}
+}
+
+
+
+
+
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{
+		\begin{flushright}
+			\let\newline\\\arraybackslash\hspace{0pt}
+	\end{flushright}}m{#1}
+}
+
+%% CONFERENCE OR WEB VERSION! %%
+\newtoggle{ConferenceNotWeb}
+%\toggletrue{ConferenceNotWeb}
+\togglefalse{ConferenceNotWeb}
+%% CONFERENCE OR WEB VERSION! %%
+
+%% 16/9 OR 4/3! %%
+\newtoggle{16_9_not_4_3}
+%% 16/9 OR 4/3! %%
+
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatletter 
