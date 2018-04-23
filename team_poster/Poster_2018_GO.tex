@@ -185,6 +185,7 @@
     	\item SERGIO
     	\begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
     		\item Suspended mecanum wheels, 2 DoF torso
+            \item New friendly covers
     	\end{itemize}
         \item 7-DoF manipulators
         \item Designs available at Robotic Open Platform
@@ -194,25 +195,46 @@
 %\vspace{0.2cm}
 \vspace{-0.8cm} % remove when compiling on linux
 
-\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{Improved manipulation}}
+%\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{Improved manipulation}}
+%\medskip %\bigskip
+%\begin{minipage}[T]{0.48\textwidth}
+%    \begin{center}
+%        \includegraphics[width=\linewidth]{Figures/manipulation_emtpy_spot}
+%    \end{center}
+%\end{minipage}
+%\hfill
+%\begin{minipage}[T]{0.48\textwidth}
+%    \begin{center}
+%        \includegraphics[width=1\linewidth]{Figures/manipulation_grasp_point}
+%    \end{center}
+%\end{minipage}
+%\begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
+%	\item Empty spot designator
+%    \begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
+%		\item Incorporates robot \& object positions
+%	\end{itemize}
+%	\item Grasping point determination
+%\end{itemize}
+%\end{bclogo}
+\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{EtherCat RosControl}}
 \medskip %\bigskip
-\begin{minipage}[T]{0.48\textwidth}
-    \begin{center}
-        \includegraphics[width=\linewidth]{Figures/manipulation_emtpy_spot}
-    \end{center}
-\end{minipage}
-\hfill
-\begin{minipage}[T]{0.48\textwidth}
-    \begin{center}
-        \includegraphics[width=1\linewidth]{Figures/manipulation_grasp_point}
-    \end{center}
-\end{minipage}
+%\begin{minipage}[T]{0.48\textwidth}
+%    \begin{center}
+%        \includegraphics[width=\linewidth]{Figures/manipulation_emtpy_spot}
+%    \end{center}
+%\end{minipage}
+%\hfill
+%\begin{minipage}[T]{0.48\textwidth}
+%    \begin{center}
+%        \includegraphics[width=1\linewidth]{Figures/manipulation_grasp_point}
+%    \end{center}
+%\end{minipage}
 \begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
-	\item Empty spot designator
-    \begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
-		\item Incorporates robot \& object positions
-	\end{itemize}
-	\item Grasping point determination
+	\item New EtherCat implementation for RosControl
+    \item Very generic driver interface
+	\item Configuration of control framework from URDF
+    \item Open-Source
+    \item Work in Progress
 \end{itemize}
 \end{bclogo}
 
@@ -296,8 +318,8 @@
     \end{center}
 \end{minipage}
 \begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
-	\item Web-based Graphical User Interface
-	\item Cross-platform
+	\item Web-based GUI, Cross-platform
+	\item Sensor and World Model view
 	\item Action server schedules the robot's tasks based on user input
 \end{itemize}
 \end{bclogo}
