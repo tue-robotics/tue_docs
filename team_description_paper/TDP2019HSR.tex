@@ -48,6 +48,10 @@
 %\usepackage{hyperref}      % not used, messes up almost all the figures!
 \usepackage{booktabs}   	% For tables (toprule, midrule, bottomrule)
 
+
+
+\setlength{\belowcaptionskip}{-10pt}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % *** PATHS ***
 \makeatletter
@@ -90,9 +94,8 @@
 
 \title{Tech United Eindhoven @Home \\2018 Team Description Paper}
 
-\author{M.F.B.~van~der~Burgh , J.J.M.~Lunenburg, R.P.W.~Appeldoorn, R.W.J.~Wijnands,
-T.T.G.~Clephas, M.J.J.~Baeten, L.L.A.M.~van~Beek, R.A.~Ottervanger,
-S.~Aleksandrov, T.~Assman, K.~Dang, J.~Geijsberts, L.G.L.~Janssen,
+\author{M.F.B.~van~der~Burgh , J.J.M.~Lunenburg, L.L.A.M.~van~Beek,
+S.~Aleksandrov, K.~Dang, J.~Geijsberts, L.G.L.~Janssen,
 H.W.A.M.~van~Rooy, A.T. Hofkamp and M.J.G.~van~de~Molengraft}
 
 \institute{Eindhoven University of Technology,\\
@@ -131,8 +134,6 @@ Den Dolech 2, P.O. Box 513, 5600 MB Eindhoven, The Netherlands\\
 %Remove ugly video stuff\\
 
 
-
-TODO: UPDATE \\
 This paper provides an overview of the main developments of the Tech United Eindhoven RoboCup@Home team. Tech United uses an advanced world modeling representation system called the Environment Descriptor that allows straightforward implementation of localization, navigation, exploration, object detection \& recognition, object manipulation and robot-robot cooperation skills. Recent developments are improved object and people detection via deep learning methods, a generic GUI for different user levels, improved speech recognition, improved natural language interpretation and sound source localization.
 
 \end{abstract}
@@ -158,6 +159,9 @@ This paper provides an overview of the main developments of the Tech United Eind
 
 \section{Image Recognition}
 \input{object_recognition.tex}
+
+\section{Pose detection}
+\input{people_detector}
 
 \section{Sound source localization}
 \input{ssl.tex}
@@ -193,14 +197,9 @@ This paper provides an overview of the main developments of the Tech United Eind
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\robospecs
-%\newpage
+%\robospecs
 \newpage
-\input{RobotDescriptionSSPL}
-%\newpage
-%\input{hardware_HSR.tex}
-%\newpage
-%\input{software_HSR.tex}
+\input{RobotDescriptionDSPL}
 
 
 
