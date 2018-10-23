@@ -1,1 +1,3 @@
-Blaat
+The telegram interface\footnote{\url{https://github.com/tue-robotics/telegram_ros}}to our robots is a ROS wrapper around the \textit{python-telegram-bot} library. The software exposes four topics. It accepts both text and images to and from the robot. The interface allows only one master of the robot at a time. To gain ownership over the robot, you need to sent \textit{/start}.
+
+The interface itself doesn't contain any reasoning. This is all done by the conversation engine.

@@ -1,15 +1,15 @@
-\subsection{HSR's Software and External Devices}
+\section{HSR's Software and External Devices}
 % In this section briefly describe the software and hardware of the robot
 
 \setlength\intextsep{0pt}
-\begin{wrapfigure}[5]{r}{0.3\textwidth}
+\begin{wrapfigure}[20]{RH}{0.3\textwidth}
 	\centering
 	\includegraphics[width=0.3\textwidth]{Toyota_HSR}
-	\caption{The Toyota HSR Robot, HERO}
+	\caption{The Toyota\texttrademark\hspace{0em} HSR Robot, HERO}
 	\label{fig:hsr}
 \end{wrapfigure}
 
-We use a standard \textit{Toyota} HSR robot unit. To differentiate our unit, we named it HERO. We wanted to link the name to our AMIGO and SERGIO domestic service robots.
+We use a standard Toyota\texttrademark\hspace{0em} HSR robot. To differentiate our unit, we named it HERO. We wanted to link it's name to our AMIGO and SERGIO domestic service robots.
 
 \subsubsection{HERO's Software Description}
 % Please describe in this section the software you are using to control your robot. Consider the following example:
@@ -36,16 +36,14 @@ Currently, we have some \textit{image\_recognition} packages released into the c
 %            \url{https://github.com/tue-robotics/rtt_control_components}
 %            \\
 
-%            Simulation & Custom kinematics + sensor simulator \newline
-%            \url{https://github.com/tue-robotics/fast_simulator}
-%            \\
+            Simulation & Gazebo\\
 
             World model & \acrfull{ed}, custom \newline
             \url{https://github.com/tue-robotics/ed}\\
 
-            Localization & Monte Carlo~\cite{Fox2003} using \gls{ed}, custom \newline \url{https://github.com/tue-robotics/ed\_localization}\\
+            Localization & Monte Carlo~\cite{Fox2003} using \gls{ed}, custom \newline \url{https://github.com/tue-robotics/ed_localization}\\
 
-            SLAM & Gmapping package \newline \url{http://wiki.ros.org/gmapping}\\
+            SLAM & Gmapping\\
 
             Navigation & CB Base navigation
             \newline
@@ -53,17 +51,15 @@ Currently, we have some \textit{image\_recognition} packages released into the c
             \newline
             Global: custom A* planner\newline Local: modified ROS DWA~\cite{Fox1997}\\
 
-%            Arm navigation & Custom implementation using MoveIt and Orocos KDL\newline
-%            \url{https://github.com/tue-robotics/tue_manipulation}
-%            \\
+            Arm navigation & MoveIt!\\
 
             Object recognition & Tensorflow ROS \newline
-			\url{https://github.com/tue-robotics/image\_recognition/tree/master/tensorflow\_ros}\\
+			\url{https://github.com/tue-robotics/image_recognition/tree/master/tensorflow_ros}\\
 
             People detection & Custom implementation using contour matching \newline
             \url{https://github.com/tue-robotics/ed_perception}
             \\
-            Face detection \& recognition & Openface ROS \newline \url{https://github.com/tue-robotics/image\_recognition/tree/master/openface\_ros} \\
+            Face detection \& recognition & Openface ROS \newline \url{https://github.com/tue-robotics/image_recognition/tree/master/openface_ros} \\
 
             Speech recognition & Julius Speech Recognition \newline
             \url{https://github.com/julius-speech/julius}\\
@@ -75,7 +71,7 @@ Currently, we have some \textit{image\_recognition} packages released into the c
     \end{center}
 \end{table}
 
-This our current software implementation on our robots AMIGO and SERGIO, which participate in the open league. Because of the pending delivery of the Toyota HSR and related documentation, we are not able to provide the specific software implementation. As described in our selection qualification paper, our goal is to use the same software as possible on all our robots, including the Toyota HSR.
+This is our current software implementation, which matches our own robots, AMIGO and SERGIO, which have participated in the open platform league.
 
 \subsubsection{External Devices}
 % Please describe in this section the external devices used by your robot. Consider the following example:
