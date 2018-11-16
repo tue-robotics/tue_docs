@@ -1,11 +1,18 @@
 \subsubsection{Detection \& Segmentation}
-ED enables integrating sensors through the use of the plugins present in the \textit{ed\_sensor\_integration} package. Two different plugins exist:
-1. The \emph{laser\_plugin}: Enables tracking of 2D laser clusters. This plugin can be used to track dynamic obstacles such as humans.
-2. The \emph{kinect\_plugin}: Enables world model updates with use of data from a RGBD camera. This plugin exposes several ROS services that realize different functionalities:
+ED enables integrating sensors through the use of the plugins present in the \textit{ed\_sensor\_integration} package. 
+Two different plugins exist:
+1. The \emph{laser\_plugin}: Enables tracking of 2D laser clusters. 
+This plugin can be used to track dynamic obstacles such as humans.
+2. The \emph{kinect\_plugin}: Enables world model updates with use of data from a RGBD camera. 
+This plugin exposes several ROS services that realize different functionalities:
 \begin{enumerate}[label=(\alph*)]
-\item Segment: A service that segments sensor data that is not associated with other world model entities. Segmentation areas can be specified per entity in the scene. This allows to segment object `on-top-of’ or ‘in’ a cabinet. All points outside the segmented area are ignore for segmentation.
-\item FitModel: A service that fits the specified model in the sensor data of a RGBD camara. This allows updating semi-static obstacles such as tables and chairs.
+\item Segment: A service that segments sensor data that is not associated with other world model entities. 
+Segmentation areas can be specified per entity in the scene. This allows to segment object `on-top-of’ or ‘in’ a cabinet. 
+All points outside the segmented area are ignore for segmentation.
+\item FitModel: A service that fits the specified model in the sensor data of a RGBD camara. 
+This allows updating semi-static obstacles such as tables and chairs.
 \end{enumerate}
 
 
-The \emph{ed\_sensor\_integration} plugins enable updating and creating entities. However, new entities are classified as unknown entities. Classification is done in \emph{ed\_perception} plugin\footnote{\url{https://github.com/tue-robotics/ed_perception}} package. 
+The \emph{ed\_sensor\_integration} plugins enable updating and creating entities. 
+However, new entities are classified as unknown entities. Classification is done in \emph{ed\_perception} plugin\footnote{\url{https://github.com/tue-robotics/ed_perception}} package. 
