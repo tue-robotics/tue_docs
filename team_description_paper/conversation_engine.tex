@@ -1,9 +1,17 @@
 \label{ssec:conversation}
-The \emph{conversation\_ engine}\footnote{\url{https://github.com/tue-robotics/conversation_engine}} bridges the gap between text input and an action planner (called action\_server). Text can be received from either Speech-to-Text or from a chat interface, like Telegram\texttrademark\hspace{0em}.
-The text is parsed according to a (Feature) Context Free Grammar, resulting in an action description in the form of a nested mapping. In the action description, (sub)actions and their parameters are filled in. This may include references such as `it'.
+The \emph{conversation\_ engine}\footnote{\url{https://github.com/tue-robotics/conversation_engine}} bridges the gap between text input and an action planner (called action\_server). 
+Text can be received from either Speech-to-Text or from a chat interface, like Telegram\texttrademark\hspace{0em}.
+The text is parsed according to a (Feature) Context Free Grammar, resulting in an action description in the form of a nested mapping. 
+In the action description, (sub)actions and their parameters are filled in. 
+This may include references such as `it'.
 
-Based on the action description, the action server tries to devise a sequence of actions and parameterize those with concrete object IDs. It may be that more information is needed (e.g. ``Place a coke on the dinner table''). The action then fails for this reason and then the conversation engine must interact with the user to obtain the missing information (e.g. ``Where should I pick that up?'').
+Based on the action description, the action\_server tries to devise a sequence of actions and parameterize those with concrete object IDs. 
+%It may be that more information is needed (e.g. ``Place a coke on the dinner table''). 
+%The action then fails for this reason and then the conversation engine must interact with the user to obtain the missing information (e.g. ``Where should I pick that up?'').
+To fill in missing information, the conversation\_engine engages with the user. 
 
-When the user supplies more information, the input is parsed and the current action description is extended and retried. To parse the additional information to fill in gaps of missing info, the conversation engine must know what field of missing information (e.g. `source-location' of a `grab' action) must be parsed according to what rules. The conversation engine is therefore parameterized with a mapping that links fields containing e.g. `location' to a rule in the grammar called `LOCATION'.
+When the user supplies more information, the additional input is parsed in the context of what info is missing.% and the current action description is extended and retried. 
+%To parse the additional information to fill in gaps of missing info, the conversation\_engine must know what field of missing information (e.g. `source-location' of a `grab' action) must be parsed according to what rules. 
+%The conversation\_engine is therefore parameterized with a mapping that links fields containing e.g. `location' to a rule in the grammar called `LOCATION'.
 
 Lastly, it keeps the user `informed' while actions are being performed by reporting on the current subtask.
