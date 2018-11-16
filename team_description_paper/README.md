@@ -9,3 +9,9 @@
 ## Team Description Papers @Home DSPL
 
 - [Team Description Paper Tech United @Home DSPL 2017](https://github.com/tue-robotics/team_description_paper/blob/master/Tech_United_At_Home_TDP_2017_DSPL.pdf)
+
+### Compiling
+```bash
+cd team_description_paper
+pdflatex TDP2019HSR.tex
+```
