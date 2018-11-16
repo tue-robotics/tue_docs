@@ -1,26 +1,27 @@
 As for manipulating objects, the architecture is only focused on grasping. 
-The input is a specific target entity in \acrshort{ed}. 
+The input is a specific target entity in \acrshort{ed}, selected by a Python executive. 
 The output is the grasp motion joint trajectory. 
-Figure \ref{fig:grasping_pipeline} shows the grasping pipeline.
-\begin{figure}[h]
-    \centering
-    %\vspace{-0.3cm}
-	\includegraphics[width = 1\linewidth]{Figures/grasping_pipeline}
-    %\vspace{-1em}
-	\caption{Custom grasping pipeline base on \acrshort{ed}, MoveIt and a separate grasp point determination and approach vector node.}
-	\label{fig:grasping_pipeline}
-    %\vspace{-0.5cm}
-\end{figure}
-A python executive queries the current pose of the entity from \acrshort{ed}.
+%Figure \ref{fig:grasping_pipeline} shows the grasping pipeline.
+%\begin{figure}[h]
+%    \centering
+%    %\vspace{-0.3cm}
+%	\includegraphics[width = 1\linewidth]{Figures/grasping_pipeline}
+%    %\vspace{-1em}
+%	\caption{Custom grasping pipeline base on \acrshort{ed}, MoveIt and a separate grasp point determination and approach vector node.}
+%	\label{fig:grasping_pipeline}
+%    %\vspace{-0.5cm}
+%\end{figure}
+%A python executive queries the current pose of the entity from \acrshort{ed}.
 %The resulting grasp pose goes to the grasp precompute component which makes sure that the object is approached in a proper way.
-MoveIt will produce joint trajectories over time with use of the current configuration, the URDF model, collision meshes from \acrshort{ed} and the final configuration. 
+MoveIt! is used produce joint trajectories over time, given the current configuration, robot model, \acrshort{ed} world model and the final configuration. 
 %Finally, the trajectories are sent to the reference interpolator which sends the trajectories either to the controllers or the simulated robot.
 \\
 %The grasping pipeline is extended with an empty spot designator and grasping pose determination. The empty spot designator searches in an area, like `on-top-of'of the dinner table, for an empty spot to place an object by using the occupied area by other objects in this area.
 Before placing, \acrshort{ed} is queried to find an empty placement pose.
 \\
 The grasp pose determination uses the information about the position and shape of the object in \acrshort{ed} to determine the best grasping pose. 
-The grasping pose is a vector relative to the robot. An example of the determined grasping pose is shown in Figure \ref{fig:grasping_pose_determination}.
+%The grasping pose is a vector relative to the robot. 
+%An example of the determined grasping pose is shown in Figure %\ref{fig:grasping_pose_determination}.
 % \begin{figure}[h]
 %    \centering
 %    %\vspace{-0.3cm}
