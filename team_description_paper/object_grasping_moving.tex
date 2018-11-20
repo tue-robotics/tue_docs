@@ -11,7 +11,7 @@ Figure \ref{fig:grasping_pipeline} shows the grasping pipeline.
 \end{figure}
 %A python executive queries the current pose of the entity from \acrshort{ed}.
 %The resulting grasp pose goes to the grasp precompute component which makes sure that the object is approached in a proper way.
-MoveIt! is used produce joint trajectories over time, given the current configuration, robot model, \acrshort{ed} world model (for collision avoidance) and the final configuration.
+MoveIt! is used to produce joint trajectories over time, given the current configuration, robot model, \acrshort{ed} world model (for collision avoidance) and the final configuration.
 %\acrshort{ed} provides collision meshes to MoveIt! so it can plan paths that avoid obstacles.
 %Finally, the trajectories are sent to the reference interpolator which sends the trajectories either to the controllers or the simulated robot.
 \\
