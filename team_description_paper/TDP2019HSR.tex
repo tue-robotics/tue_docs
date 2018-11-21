@@ -69,11 +69,11 @@
 \newacronym{ed}{ED}{Environment Descriptor}
 \newacronym{amcl}{AMCL}{Adaptive Monte Carlo Localization}
 \newacronym{gui}{GUI}{Graphical User Interface}
-%\newacronym{spl}{SPL}{Standard Platform League}
 \newacronym{fcfg}{FCFG}{feature context free grammar}
 \newacronym{ros}{ROS}{Robot Operating System}
 \newacronym{wire}{WIRE}{World Information for Robotic Environments}
 \newacronym{cnn}{CNN}{Convolution Neural Networks}
+\newacronym{doa}{DOA}{Direction of Arrival}
 
 % shorthand definitions
 \newcommand{\eg}{\emph{e.g.}}						% Exemplum gratia
@@ -116,7 +116,7 @@ Den Dolech 2, P.O. Box 513, 5600 MB Eindhoven, The Netherlands\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \begin{abstract}
-This paper provides an overview of the main developments of the Tech United Eindhoven RoboCup @Home team. Tech United uses an advanced world modeling representation system called the Environment Descriptor. It allows straightforward implementation of localization, navigation, exploration, object detection \& recognition, object manipulation and robot-robot cooperation skills based on the most recent state of the world. Recent developments are improved object and people detection via deep learning methods, a generic GUI for different user levels, improved speech recognition, improved natural language interpretation, sound source localization and the integration of a Telegram interface, combined with a conversation engine.
+This paper provides an overview of the main developments of the Tech United Eindhoven RoboCup @Home team. Tech United uses an advanced world modeling system called the Environment Descriptor. It allows straightforward implementation of localization, navigation, exploration, object detection \& recognition, object manipulation and robot-robot cooperation skills based on the most recent state of the world. Recent developments are improved object and people detection via deep learning methods, a GUI, improved speech recognition, improved natural language interpretation, sound source localization and a chat interface combined with a conversation engine.
 
 \end{abstract}
 %
@@ -142,8 +142,8 @@ This paper provides an overview of the main developments of the Tech United Eind
 \section{Image Recognition}
 \input{image_recognition.tex}
 
-\section{Pose detection}
-\input{people_detector}
+%\section{Pose detection}
+%\input{people_detector}
 
 \section{Sound source localization}
 \input{ssl.tex}
@@ -175,7 +175,7 @@ This paper provides an overview of the main developments of the Tech United Eind
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section*{Bibliography}
+%\section*{Bibliography}
 \bibliographystyle{unsrt}
 \bibliography{refs}
 
