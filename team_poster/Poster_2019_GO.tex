@@ -158,11 +158,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [Author] and {Title} of the poster
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\slidetitle[RoboCup~Montr\'{e}al~2018]{\vspace{10mm} Tech United Eindhoven}
+\slidetitle[RoboCup~German~Open~2019]{\vspace{10mm} Tech United Eindhoven}
 
 \begin{multicols}{2}
 
-\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{AMIGO \& SERGIO}}
+\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{HERO, AMIGO (\& SERGIO)}}
 \medskip %\bigskip
 \begin{minipage}[T]{0.48\linewidth}
 	\begin{center}
@@ -195,7 +195,7 @@
             \item 2x 7-DoF manipulator
             \item Designs available at Robotic Open Platform
         \end{itemize}
-        \item SERGIO (not pictured)
+        %\item SERGIO (not pictured)
 %    	\begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
 %    		\item Suspended mecanum wheels, 2 DoF torso
 %            \item New friendly covers
@@ -204,60 +204,16 @@
 \end{bclogo}
 
 %\vspace{0.2cm}
-\vspace{-0.8cm} % remove when compiling on linux
+\vspace{-0.83cm} % remove when compiling on linux
 
-%\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{Improved manipulation}}
-%\medskip %\bigskip
-%\begin{minipage}[T]{0.48\textwidth}
-%    \begin{center}
-%        \includegraphics[width=\linewidth]{Figures/manipulation_emtpy_spot}
-%    \end{center}
-%\end{minipage}
-%\hfill
-%\begin{minipage}[T]{0.48\textwidth}
-%    \begin{center}
-%        \includegraphics[width=1\linewidth]{Figures/manipulation_grasp_point}
-%    \end{center}
-%\end{minipage}
-%\begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
-%	\item Empty spot designator
-%    \begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
-%		\item Incorporates robot \& object positions
-%	\end{itemize}
-%	\item Grasping point determination
-%\end{itemize}
-%\end{bclogo}
-%\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{EtherCat RosControl}}
+\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue, barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{Natural language interpretation}}
 \medskip %\bigskip
-%\begin{minipage}[T]{0.48\textwidth}
-%    \begin{center}
-%        \includegraphics[width=\linewidth]{Figures/manipulation_emtpy_spot}
-%    \end{center}
-%\end{minipage}
-%\hfill
-%\begin{minipage}[T]{0.48\textwidth}
-%    \begin{center}
-%        \includegraphics[width=1\linewidth]{Figures/manipulation_grasp_point}
-%    \end{center}
-%\end{minipage}
-
-%\begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
-%	\item New EtherCat implementation for RosControl
-%    \item Very generic driver interface
-%	\item Configuration of control framework from URDF
-%    \item Open-Source
-%    \item Work in Progress
-%\end{itemize}
-
-\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{Unified application architecture}}
 \begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
-	\item 1 application for 3 robots
-    \item N-arms
-    \item Smach-based
-    \item Easier programming with World Model
-%	\begin{itemize}
-%		\item verb(object=robot, subject=world model entity)
-%	\end{itemize}
+	\item Conversational interface
+	\item Natural Language Interpretation using Feature Context Free Grammar (FCFG)
+	\item Speech recognition grammars are generated from FCFG
+	\item Chat interface using Telegram or Slack
+	\item WIP: STT based on Kaldi, trained on Mozilla Common Voice
 \end{itemize}
 \end{bclogo}
 
@@ -279,11 +235,6 @@
         %\figcaption{}
     \end{center}
 \end{minipage}
-%\begin{minipage}[T]{\textwidth}
-%    \begin{center}
-%        \includegraphics[width=0.9\linewidth]{Figures/cnn}
-%    \end{center}
-%\end{minipage}
 \begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
 	\item Object recognition using Deep Learning
 	\item Face recognition: Openface based on Torch
@@ -326,6 +277,21 @@
 \end{bclogo}
 
 %\vspace{0.2cm}
+\vspace{-0.8cm} % remove when compiling on linux
+
+\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{Generic application architecture}}
+\begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
+	\item 1 application for 3 robots
+    \item N arms, X DOF
+    \item SMach-based
+    \item Easier programming with World Model
+%	\begin{itemize}
+%		\item verb(object=robot, subject=world model entity)
+%	\end{itemize}
+\end{itemize}
+\end{bclogo}
+
+%\vspace{0.2cm}
 \vspace{-0.83cm} % remove when compiling on linux
 
 \begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue , barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{WebGUI}}
@@ -346,23 +312,8 @@
 \end{itemize}
 \end{bclogo}
 
-%\vspace{0.2cm}
-\vspace{-0.83cm} % remove when compiling on linux
-
-\begin{bclogo}[couleur = white, arrondi = 0.25, couleurBord = tuedarkblue, barre = none, logo=\emptylogo]{\textcolor{tuedarkblue}{Natural language interpretation}}
-\medskip %\bigskip
-\begin{itemize}[itemsep = 0pt, parsep = 0pt, leftmargin=15pt]
-	\item Conversational interface
-	\item Natural Language Interpretation using Feature Context Free Grammar (FCFG)
-	\item Speech recognition grammars are generated from FCFG
-	\item Chat interface using Telegram or Slack
-	\item WIP: STT based on Kaldi, trained on Mozilla Common Voice
-\end{itemize}
-\end{bclogo}
-
 \includegraphics[width=0pt]{Figures/Empty}
 \end{multicols}
 \end{slidetop}
 
 \end{document}
-
