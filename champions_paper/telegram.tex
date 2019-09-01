@@ -1,0 +1,4 @@
+\label{ssec:telegram}
+The Telegram interface\footnote{\url{https://github.com/tue-robotics/telegram_ros}} to our robots is a ROS wrapper around the \emph{python-telegram-bot} library. The software exposes four topics, for images and text resp. from and to the robot. The interface allows only one master of the robot at a time.
+
+The interface itself doesn't contain any reasoning. This is all done by the \emph{conversation\_engine}, which is described in the following subsection.

@@ -1,0 +1,208 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% file typeinst.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Template author: Mauricio Matamoros
+% Updated: July 3, 2017
+% Contact: mauricio@robocupathome.org
+%
+% This is the LaTeX source for the TDPTemplate using
+% the LaTeX document class 'llncs.cls' Springer LNAI format
+% used in the RoboCup Symposium submissions.
+% http://www.springer.com/computer/lncs?SGWID=0-164-6-793341-0
+%
+% It may be used as a template for your own TDP - copy it
+% to a new file with a new name and use it as the basis
+% for your Team Description Paper
+%
+% NB: the document class 'llncs' has its own and detailed documentation, see
+% ftp://ftp.springer.de/data/pubftp/pub/tex/latex/llncs/latex2e/llncsdoc.pdf
+%
+% Remark: Last page with specs won't be included in Camera ready TDP's.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% TU/e update: 27 oct 2017 - HvR
+
+\documentclass[runningheads,a4paper]{llncs}
+%\usepackage[left=48mm,right=46mm]{geometry}
+%\usepackage[left=32mm,right=31mm]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{url}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+%\usepackage{titling}       % not used, messes up the titlepage!
+%\usepackage{lipsum}  		% a garbage package you don't need except to create examples.
+
+\include{macros}
+
+% added HvR - 27oct2017 - from last year's (2017) template
+\usepackage[english]{babel}	% input language for hyphens
+\usepackage{listings}
+\usepackage{enumitem}
+%\usepackage{hyperref}      % not used, messes up almost all the figures!
+\usepackage{booktabs}   	% For tables (toprule, midrule, bottomrule)
+
+
+
+\setlength{\belowcaptionskip}{-10pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% *** PATHS ***
+\makeatletter
+\def\input@path{{Figures/}		
+				}
+\makeatother
+\graphicspath{{Figures/}
+				}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Acronym definitions
+\usepackage[acronym]{glossaries}
+\newacronym{ed}{ED}{Environment Descriptor}
+\newacronym{amcl}{AMCL}{Adaptive Monte Carlo Localization}
+\newacronym{gui}{GUI}{Graphical User Interface}
+\newacronym{fcfg}{FCFG}{feature context free grammar}
+\newacronym{ros}{ROS}{Robot Operating System}
+\newacronym{wire}{WIRE}{World Information for Robotic Environments}
+\newacronym{cnn}{CNN}{Convolution Neural Networks}
+\newacronym{doa}{DOA}{Direction of Arrival}
+
+% shorthand definitions
+\newcommand{\eg}{\emph{e.g.}}						% Exemplum gratia
+\newcommand{\goal}{\mathcal{G}}						% Goal area
+\newcommand{\goallc}{\mathcal{G}_{\mathrm{lc}}}		% Subset of goal area with costs below threshold cmin
+\newcommand{\goalhc}{\mathcal{G}_{\mathrm{hc}}}		% Subset of goal area with costs above threshold cmin
+\newcommand{\ie}{\emph{i.e.}}						% Id est
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Title
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%\setlength{\headheight}{22pt}
+
+\title{Tech United Eindhoven @Home \\2019 Champions Paper}
+
+
+\author{\color{red}{M.F.B.~van~der~Burgh , J.J.M.~Lunenburg, L.L.A.M.~van~Beek,
+J.~Geijsberts, L.G.L.~Janssen, S.~Aleksandrov, K.~Dang,
+H.W.A.M.~van~Rooy, A.T.~Hofkamp, D.~van~Dinther, A.~Aggarwal and M.J.G.~van~de~Molengraft}}
+
+\institute{Eindhoven University of Technology,\\
+Den Dolech 2, P.O. Box 513, 5600 MB Eindhoven, The Netherlands\\
+\texttt{http://www.techunited.nl, techunited@tue.nl, https://github.com/tue-robotics}}
+
+\authorrunning{Tech United Eindhoven}
+
+%\author{Team Leader \and Team Members }
+%\institute{[Institute name and direction here], \\
+%\texttt{http://devoted-web-site.url}}
+
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Abstract
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{abstract}
+This paper provides an overview of the main developments of the Tech United Eindhoven RoboCup @Home team. Tech United uses an advanced world modeling system called the Environment Descriptor. It allows straightforward implementation of localization, navigation, exploration, object detection \& recognition, object manipulation and robot-robot cooperation skills based on the most recent state of the world. Other important features include object and people detection via deep learning methods, a GUI, speech recognition, natural language interpretation and a chat interface combined with a conversation engine. Recent developments that helped win the competition include pointing detection, usage of HSR's display, a people detector and the addition of a custom keyboard in the chat interface.
+
+\end{abstract}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\section{Introduction}
+\input{introduction.tex}
+
+\section{\acrfull{ed}}
+\input{ed.tex}
+
+\subsection{Localization, Navigation and Exploration}
+\input{navigation_exploration.tex}
+
+\subsection{Object detection}
+\input{object_detection.tex}
+
+\subsection{Object grasping, moving and placing}
+\input{object_grasping_moving.tex}
+
+\section{Image Recognition}
+\input{image_recognition.tex}
+
+\section{People Recognition}
+\input{people_recognition}
+\subsection{Pointing detection}
+\input{pointing_detection}
+%\section{Pose detection}
+%\input{people_detector}
+
+%\section{Sound source localization}
+%\input{ssl.tex}
+
+%\subsection{Reasoning}	
+%\input{reasoning.tex}
+
+%\newpage
+\section{Human-Robot Interface}
+\input{hmi.tex}
+\subsection{Web GUI}
+\input{webgui.tex}
+\subsection{Telegram\texttrademark\hspace{0em}}
+\input{telegram.tex}
+\subsubsection{Conversation Engine}\
+
+\input{conversation_engine.tex}
+\subsubsection{Custom Keyboard, Telegram HMI}\
+
+\input{custom_keyboard.tex}
+
+\subsection{Head Display}
+\input{head_display}
+
+
+\section{Re-usability of the system for other research groups}
+\input{reusability.tex}
+
+\section{Community Outreach and Media}
+\input{community_outreach_media.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Bibliography\usepackage{graphicx}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section*{Bibliography}
+\bibliographystyle{unsrt}
+\bibliography{refs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Robot Specifications
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\robospecs
+\newpage
+%\section{Robot Description}
+\input{RobotDescriptionDSPL.tex}
+
+
+
+\end{document}

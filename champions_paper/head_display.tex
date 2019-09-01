@@ -1,0 +1,11 @@
+\label{ssec:display}
+On the display that is integrated in the Toyota HSR's 'head' a lot of useful information can be displayed. Through the \emph{hero\_ display}\footnote{\url{https://github.com/tue-robotics/hero-display}} a few different functionalities are integrated. As per default our Tech United @home logo, \ref{fig:hero_display} is displayed on the screen. When the robot is speaking the spoken text is displayed (std\_msgs/String), when the robot is listening a spinner is shown (hmi\_msgs/GoalStatus) and next to this it is possible to display images (sensor\_msgs/Image-sensor\_msgs/CompressedImage).
+
+\begin{figure}[h]
+    \centering
+	\includegraphics[width=0.7\linewidth]{hero_display}
+    %\vspace{-0.5em}
+	\caption{
+		The default image shown on HERO's head display.}
+	\label{fig:hero_display}
+\end{figure}
