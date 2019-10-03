@@ -1,5 +1,5 @@
 \label{ssec:conversation}
-The \emph{conversation\_ engine}\footnote{\url{https://github.com/tue-robotics/conversation_engine}} bridges the gap between text input and an action planner (called action\_server). Text can be received from either Speech-to-Text or from a chat interface, like Telegram\texttrademark\hspace{0em}. The text is parsed according to a (Feature) Context Free Grammar, resulting in an action description in the form of a nested mapping. In the action description, (sub)actions and their parameters are filled in.
+\noindent The \emph{conversation\_ engine}\footnote{\url{https://github.com/tue-robotics/conversation_engine}} bridges the gap between text input and an action planner (called action\_server). Text can be received from either Speech-to-Text or from a chat interface, like Telegram\texttrademark\hspace{0em}. The text is parsed according to a (Feature) Context Free Grammar, resulting in an action description in the form of a nested mapping. In the action description, (sub)actions and their parameters are filled in.
 This may include references such as “it”.
 
 Based on the action description, the action\_server tries to devise a sequence of actions and parameterize those with concrete object IDs.
