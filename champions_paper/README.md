@@ -1,17 +1,11 @@
-# Team description papers - Tech United Eindhoven
+# Champions papers - Tech United Eindhoven
 
-## Team Description Papers @Home
+## Champions Papers @Home DSPL
 
-- [Team Description Paper Tech United @Home 2015](https://github.com/tue-robotics/team_description_paper/blob/master/Tech_United_At_Home_TDP_2015.pdf)
-- [Team Description Paper Tech United @Home 2016](https://github.com/tue-robotics/team_description_paper/blob/master/Tech_United_At_Home_TDP_2016.pdf)
-- [Team Description Paper Tech United @Home 2017](https://github.com/tue-robotics/team_description_paper/blob/master/Tech_United_At_Home_TDP_2017.pdf)
-
-## Team Description Papers @Home DSPL
-
-- [Team Description Paper Tech United @Home DSPL 2017](https://github.com/tue-robotics/team_description_paper/blob/master/Tech_United_At_Home_TDP_2017_DSPL.pdf)
+- [Champions Paper Tech United @Home DSPL 2019](https://github.com/tue-robotics/team_description_paper/blob/master/Tech_United_At_Home_Champions_Paper_2019_DSPL.pdf)
 
 ### Compiling
 ```bash
-cd team_description_paper
-pdflatex TDP2019HSR.tex
+cd champions_paper
+pdflatex ChampionsPaper2019.tex
 ```
