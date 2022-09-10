@@ -7,5 +7,5 @@
 ### Compiling
 ```bash
 cd champions_paper
-pdflatex ChampionsPaper2019.tex
+pdflatex ChampionsPaper2022.tex
 ```
