@@ -12,7 +12,7 @@ Figure \ref{fig:grasping_pipeline} shows the grasping pipeline.
 MoveIt! is used to produce joint trajectories over time, given the current configuration, robot model, \acrshort{ed} world model (for collision avoidance) and the final configuration.
 %\acrshort{ed} provides collision meshes to MoveIt! so it can plan paths that avoid obstacles.
 %Finally, the trajectories are sent to the reference interpolator which sends the trajectories either to the controllers or the simulated robot.
-\\
+\\~\\
 %The grasping pipeline is extended with an empty spot designator and grasping pose determination. The empty spot designator searches in an area, like `on-top-of'of the dinner table, for an empty spot to place an object by using the occupied area by other objects in this area.
 \indent The grasp pose determination uses the information about the position and shape of the object in \acrshort{ed} to determine the best grasping pose.
 The grasping pose is a vector relative to the robot.

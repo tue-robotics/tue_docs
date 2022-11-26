@@ -13,9 +13,9 @@ An overview of the software used by the Tech United Eindhoven @Home robots can b
     \setlength{\tabcolsep}{5pt}
         \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
             \toprule
-            Operating system & Ubuntu 16.04 LTS Server\\
+            Operating system & Ubuntu 20.04 LTS Server\\
 
-            Middleware & ROS Kinetic~\cite{Quigley2009}\\
+            Middleware & ROS Noetic~\cite{Quigley2009}\\
 
             Simulation & Gazebo\\
 
@@ -34,15 +34,16 @@ An overview of the software used by the Tech United Eindhoven @Home robots can b
 
             Arm navigation & MoveIt!\\
 
-            Object recognition & image\_recognition\_tensorflow \newline
-			\url{https://github.com/tue-robotics/image_recognition/tree/master/image_recognition_openface}\\
+            Object recognition & Inception based custom DNN~\cite{GoogleNet2015} \newline
+			\url{https://github.com/tue-robotics/image_recognition/image_recognition_tensorflow}\\
 
             People detection & Custom implementation using contour matching \newline
-            \url{https://github.com/tue-robotics/ed_perception}
+            \url{https://github.com/tue-robotics/people_recognition}
             \\
-            Face detection \& recognition & image\_recognition\_openface \newline \url{https://github.com/tue-robotics/image_recognition/tree/master/image_recognition_openface} \\
+            Face detection \& recognition & OpenFace~\cite{amos2016openface} \newline \url{https://github.com/tue-robotics/image_recognition/image_recognition_openface} \\
 
-            Speech recognition & Windows Speech Recognition\\
+            Speech recognition & Windows Speech Recognition, Picovoice \newline
+            \url{https://github.com/reinzor/picovoice_ros.git} \\
             
             Speech synthesis & Toyota\texttrademark \hspace{0em} Text-to-Speech\\
             Task executors & SMACH \newline
@@ -59,7 +60,6 @@ An overview of the software used by the Tech United Eindhoven @Home robots can b
 
 \begin{itemize}
     \item Official Standard Laptop
-    \item USB power speaker
     \item Gigabit Ethernet Switch
     \item Wi-Fi adapter
 \end{itemize}

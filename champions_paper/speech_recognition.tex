@@ -1,0 +1,8 @@
+\label{sec:speech_rec}
+Over the years, with the change of base hardware and operating systems, we implemented and experimented with multiple speech recognition systems to allow our robots to hear and understand the operator in noisy environments.
+We started with the Dragonfly speech recognition framework \footnote{\url{https://dragonfly2.readthedocs.io/en/latest/}} using Windows Speech Recognition engine as the backend on a Windows 10 virtual machine.
+This system proved to not be robust against noisy environments primarily due to the default microphone of HERO.
+%Also, using VirtualBox along side Linux requires the Linux Kernel to be recent for seamless integration, which too was not the case with the Toyota HSRs.
+%As a result, we first explored the opportunity of building a new speech recognition system using Kaldi-ASR~\cite{Povey:192584}, completely in-house, that would both be robust to noise and compatible with the operating system of HERO.
+%This however, did not support loading of custom context-free grammars, which is used by our human-interaction systems.
+As an alternative, we investigated Kaldi-ASR~\cite{Povey:192584}, but finally settled with Picovoice\footnote{\url{https://picovoice.ai/}}, alongside the existing Dragonfly system, as it provided seamless support for our custom context-free grammars.
