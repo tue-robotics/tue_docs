@@ -15,5 +15,5 @@
 ### Compiling
 ```bash
 cd team_description_paper
-pdflatex TDP2019HSR.tex
+pdflatex TDP.tex
 ```

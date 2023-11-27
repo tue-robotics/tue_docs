@@ -1,5 +1,4 @@
 \section{HSR's Software and External Devices}
-% In this section briefly describe the software and hardware of the robot
 We use a standard Toyota\texttrademark\hspace{0em} HSR robot. To differentiate our unit, we named it HERO. We wanted to link it's name to our AMIGO and SERGIO domestic service robots.
 
 \noindent An overview of the software used by the Tech United Eindhoven @Home robots can be found in Table~\ref{tab:softwarespec}.
@@ -8,7 +7,6 @@ All our software is developed open-source at GitHub\footnote{\url{https://github
     \begin{center}
     \caption{Software overview}
     \label{tab:softwarespec}
-    %\vspace{-0.1cm}
     \renewcommand{\arraystretch}{1.0}
     \setlength{\tabcolsep}{5pt}
         \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
@@ -19,14 +17,14 @@ All our software is developed open-source at GitHub\footnote{\url{https://github
 
             Simulation & Gazebo\\
 
-            World model & \acrfull{ed}, custom \newline
+            World model* & \acrfull{ed}, custom \newline
             \url{https://github.com/tue-robotics/ed}\\
 
-            Localization & Monte Carlo~\cite{Fox2003} using \gls{ed}, custom \newline \url{https://github.com/tue-robotics/ed_localization}\\
+            Localization* & Monte Carlo~\cite{Fox2003} using \gls{ed}, custom \newline \url{https://github.com/tue-robotics/ed_localization}\\
 
             SLAM & Gmapping\\
 
-            Navigation & CB Base navigation
+            Navigation* & CB Base navigation, custom
             \newline
             \url{https://github.com/tue-robotics/cb_base_navigation}
             \newline
@@ -34,26 +32,26 @@ All our software is developed open-source at GitHub\footnote{\url{https://github
 
             Arm navigation & MoveIt!\\
 
-            Object recognition & Inception based custom DNN~\cite{GoogleNet2015} \newline
-			\url{https://github.com/tue-robotics/image_recognition}\\
+            Object recognition* & Inception based custom DNN~\cite{GoogleNet2015}, custom \newline
+            \url{https://github.com/tue-robotics/image_recognition}\\
 
-            People detection & Custom implementation using contour matching \newline
+            People recognition* & Custom implementation using contour matching \newline
             \url{https://github.com/tue-robotics/people_recognition}
             \\
-            Face detection \& recognition & OpenFace~\cite{amos2016openface} \newline \url{https://github.com/tue-robotics/image_recognition} \\
+            Face recognition* & OpenFace~\cite{amos2016openface}, custom \newline \url{https://github.com/tue-robotics/image_recognition} \\
 
-            Speech recognition & Windows Speech Recognition, PicoVoice \newline
+            Speech recognition* & Picovoice, custom \newline
             \url{https://github.com/tue-robotics/picovoice_ros.git} \\
-            
+
             Speech synthesis & Toyota\texttrademark \hspace{0em} Text-to-Speech\\
-            Task executors & SMACH \newline
+            Task executors* & SMACH, custom \newline
             \url{https://github.com/tue-robotics/tue_robocup}\\
             \bottomrule
         \end{tabular}
     \end{center}
 \end{table}
+
 \subsubsection{External Devices}
-% Please describe in this section the external devices used by your robot. Consider the following example:
 \textit{HERO relies on the following external hardware:}
 \begin{itemize}
     \item Official Standard Laptop
@@ -63,12 +61,4 @@ All our software is developed open-source at GitHub\footnote{\url{https://github
 \end{itemize}
 
 \subsubsection{Cloud Services}
-% Please describe in this section the Cloud Services and online software used by your robot. Consider the following example:
-
 \textit{HERO does not use any cloud services}
-%\begin{itemize}
-%	\item Localization and mapping: Geolocalization system.
-%	\item Navigation: Navigator
-%	\item Speech recognition: All-purpose recognizer.
-%\end{itemize}
-

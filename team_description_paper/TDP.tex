@@ -56,7 +56,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % *** PATHS ***
 \makeatletter
-\def\input@path{{Figures/}		
+\def\input@path{{Figures/}
 				}
 \makeatother
 \graphicspath{{Figures/}
@@ -70,11 +70,14 @@
 \newacronym{ed}{ED}{Environment Descriptor}
 \newacronym{amcl}{AMCL}{Adaptive Monte Carlo Localization}
 \newacronym{gui}{GUI}{Graphical User Interface}
-\newacronym{fcfg}{FCFG}{feature context free grammar}
+\newacronym{fcfg}{FCFG}{(Feature) Context-free Grammar}
 \newacronym{ros}{ROS}{Robot Operating System}
 \newacronym{wire}{WIRE}{World Information for Robotic Environments}
 \newacronym{cnn}{CNN}{Convolutional Neural Networks}
 \newacronym{doa}{DOA}{Direction of Arrival}
+\newacronym{asr}{ASR}{Automatic Speech Recognition}
+
+\makeglossaries
 
 % shorthand definitions
 \newcommand{\eg}{\emph{e.g.}}						% Exemplum gratia
@@ -93,9 +96,9 @@
 
 %\setlength{\headheight}{22pt}
 
-\title{Tech United Eindhoven @Home \\2023 Team Description Paper}
+\title{Tech United Eindhoven @Home \\2024 Team Description Paper}
 
-\author{A.~Aggarwal, M.F.B.~van~der~Burgh, P.~van~Dooren, L.~Messing, R.~Martin~Núñez, S.~Narla, G.~Cordova~Cardenas, J.J.M.~Lunenburg, L.L.A.M.~van~Beek, L.G.L.~Janssen, J.~Geijsberts and M.J.G.~van~de~Molengraft}
+\author{A.~Aggarwal, M.F.B.~van~der~Burgh, P.~van~Dooren, L.~Messing, R.~Martin~Núñez, S.~Narla, G.~Cordova~Cardenas, M.L.M.~van~Vroonhoven, and M.J.G.~van~de~Molengraft}
 
 \institute{Eindhoven University of Technology,\\
 Den Dolech 2, P.O. Box 513, 5600 MB Eindhoven, The Netherlands\\
@@ -115,7 +118,7 @@ Den Dolech 2, P.O. Box 513, 5600 MB Eindhoven, The Netherlands\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \begin{abstract}
-This paper provides an overview of the main developments of the Tech United Eindhoven RoboCup@Home team. Tech United uses an advanced world modeling system called the Environment Descriptor. It allows straightforward implementation of localization, navigation, exploration, object detection \& recognition, object manipulation and robot-robot cooperation skills based on the most recent state of the world. Other important features include object and people recognition via deep learning methods, a GUI, natural language interpretation and a chat interface combined with a conversation engine. Recent developments include usage of HSR's display, the addition of a custom keyboard in the chat interface and a new speech recognition system.
+This paper provides an overview of the main developments of the Tech United Eindhoven RoboCup@Home team. Tech United uses an advanced world modeling system called the Environment Descriptor. It allows straightforward implementation of localization, navigation, exploration, object detection \& recognition, object manipulation and robot-robot cooperation skills based on the most recent state of the world. Other important features include object and people recognition via deep learning methods, a GUI \& use of HSR's display, natural language interpretation \& context-free grammar based speech recognition and a chat interface combined with a custom keyboard and conversation engine. Ongoing developments are focused on improving the perception pipelines.
 
 \end{abstract}
 %
@@ -126,7 +129,7 @@ This paper provides an overview of the main developments of the Tech United Eind
 \section{Introduction}
 \input{introduction.tex}
 
-\section{\acrfull{ed}}
+\section{Environment Descriptor (ED)}
 \input{ed.tex}
 
 \subsection{Localization, Navigation and Exploration}
@@ -151,7 +154,7 @@ This paper provides an overview of the main developments of the Tech United Eind
 %\section{Sound source localization}
 %\input{ssl.tex}
 
-%\subsection{Reasoning}	
+%\subsection{Reasoning}
 %\input{reasoning.tex}
 
 %\newpage
@@ -159,12 +162,14 @@ This paper provides an overview of the main developments of the Tech United Eind
 \input{hmi.tex}
 \subsection{Web GUI}
 \input{webgui.tex}
+\subsection{Speech Recognition}
+\input{speech_recognition.tex}
 \subsection{Telegram\texttrademark\hspace{0em}}
 \input{telegram.tex}
 \subsubsection{Conversation Engine}\
 
 \input{conversation_engine.tex}
-\subsubsection{Custom Keyboard, Telegram HMI}\
+\subsubsection{Custom Keyboard, Telegram HMI}\footnote{\url{https://github.com/tue-robotics/hmi_telegram}}\
 
 \input{custom_keyboard.tex}
 
@@ -196,6 +201,7 @@ This paper provides an overview of the main developments of the Tech United Eind
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %\robospecs
+\appendix
 \newpage
 %\section{Robot Description}
 \input{RobotDescriptionDSPL.tex}
