@@ -291,14 +291,20 @@ forces a replan. This gives the stack the moving-region tracking that
 
 ### 4.6 Decision 5 — the orientation constraint
 
-**HERO's base accepts holonomic velocity commands.** `robot_skills/base.py`
-exposes `force_drive(vx, vy, vth, ...)` and populates `v.linear.y`. The decoupled
-look-at yaw is therefore physically meaningful and should be preserved.
+**HERO drives holonomically** — confirmed 2026-09-15. This matches
+`robot_skills/base.py`, which exposes `force_drive(vx, vy, vth, ...)` and
+populates `v.linear.y`. The decoupled look-at yaw is therefore physically
+meaningful and is preserved.
 
-> **Confirm before implementing.** During design this was answered from an
-> option labelled "HERO (differential)", which contradicts the code above. If the
-> Nav2-facing base controller is configured as differential, drop this decision
-> and fold yaw into the candidate pose instead.
+Two consequences for Nav2 configuration, both belonging in the shared parameter
+file per §8:
+
+- The controller must be holonomic-capable. **MPPI** (`nav2_mppi_controller`)
+  supports omnidirectional motion models; Regulated Pure Pursuit does not.
+  `vy_max` must be set alongside `vx_max` and `wz_max`.
+- The global planner need not be kinematically constrained. `SmacPlanner2D` or
+  NavFn suffices and is cheaper than Hybrid-A*, whose Dubins/Reeds-Shepp models
+  exist to respect a turning radius HERO does not have.
 
 Three tiers, cheapest first:
 
@@ -420,7 +426,7 @@ Each phase is independently mergeable and leaves the robot in a working state.
 | 2 | `ed_navigation` ROS 2 port; `GetGoalConstraint` returns `ConstraintRegion` | ED emits structured regions; equivalence suite green against recorded worlds |
 | 3 | `constraint_functions` emit `ConstraintRegion`; `tue_nav_goal_resolver`; `tue_nav_goal_checkers` | Resolver publishes candidates; region goal checker passes unit tests |
 | 4 | `tue_nav_client` + `NavigateTo` shim on the **parity** BT (§4.7) | `navigate_to_*.py` subclasses pass their existing tests |
-| 5 | Switch to `navigate_to_pose_w_replanning_and_recovery.xml`; tune costmaps; orientation critic if §4.6 is confirmed | Recovery behaviours verified in sim and on the robot |
+| 5 | Switch to `navigate_to_pose_w_replanning_and_recovery.xml`; tune costmaps; look-at MPPI critic **only if** §4.6 tier 1 proves insufficient | Recovery behaviours verified in sim and on the robot |
 | 6 | Delete `cb_base_navigation`, `cb_base_navigation_msgs`; drop their `.env/targets` | No references remain — **blocked on `follow_operator`, see below** |
 
 Phases 1 and 2 carry the risk and are also the most testable without hardware.
@@ -460,18 +466,16 @@ cannot validate parity. Use it for fast BT tests, not as the parity harness.
    multi-goal search. Mitigation: cap `max_candidates`, prefer analytic sampling,
    and measure in Phase 3. If the p95 planning time exceeds the 1 Hz replan
    budget, reconsider §4.3's rejected alternative. **Decide on measurement.**
-2. **HERO base kinematics** (§4.6). Confirm holonomic before Phase 5; it changes
-   whether the MPPI critic is written at all.
-3. **`pose_constraints.py` passes a caller-supplied `frame_id`.** Which callers
+2. **`pose_constraints.py` passes a caller-supplied `frame_id`.** Which callers
    pass something other than `map` must be enumerated in Phase 3; it determines
    how much of §4.5 is exercised in production.
-4. **`compound_constraints` asserts equal frames.** The structured type could
+3. **`compound_constraints` asserts equal frames.** The structured type could
    support mixed-frame intersection by transforming to `map` first. Deliberately
    not designed now — no current caller needs it.
-5. **Executive undecided** (§4.8). Contained to `tue_nav_client` plus one shim
+4. **Executive undecided** (§4.8). Contained to `tue_nav_client` plus one shim
    file, but the longer it stays open the more `navigate_to_*.py` subclasses
    accumulate against the smach contract.
-6. **Costmap tuning is not a port.** `cb_base_navigation`'s costmap parameters
+5. **Costmap tuning is not a port.** `cb_base_navigation`'s costmap parameters
    were tuned against its own planner. Expect Phase 5 to be real work, not
    configuration transcription.
 
