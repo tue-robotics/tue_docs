@@ -88,6 +88,24 @@ Six generators in `robot_smach_states/navigation/constraint_functions/`, plus
 | `look_at_constraints.py` | orientation only (`pc = None`) | entity pose frame |
 | `compound_constraints.py` | string concatenation with `" and "`; asserts equal frames | — |
 
+A further eight sites build `PositionConstraint` directly rather than through
+a generator. All stay inside the same language:
+
+| Site | Shape | Frame |
+|---|---|---|
+| `manipulation/open_door.py` | annulus | `map` |
+| `manipulation/place_designator.py` | annulus | `frame_stamped` — always `map` in practice (lines 75, 277) |
+| `navigation/navigate_to_explore.py` | dilated hull `and` N exclusion discs | `map` |
+| `navigation/door_opening.py` | disc | `map` |
+| `challenge_navigation` | disc | `""` (unset) and `"/map"` |
+| `challenge_dishwasher/simple_grab.py` | annulus | **`amigo/torso_laser` frame** (see §9, risk 2) |
+| `robot_skills/base.py` `move()` | raw caller string | caller — **no callers in the tree** |
+| `robot_skills/base.py` `turn_towards()` | disc of 0.1 m at current pose | `map` |
+
+`navigate_to_explore` is the one shape that combines a polygon with exclusion
+discs, and it is the reason `ConvexArea` carries both (§4.2). `base.move()` is
+the only entry point for an arbitrary expression, and nothing calls it.
+
 **There is no arbitrary mathematics anywhere.** The entire live language is:
 
 - **primitives:** convex polygon (as a half-plane conjunction), disc, annulus
@@ -289,6 +307,13 @@ tree's `RateController`) and republishes the goal. `GlobalUpdatedGoal` then
 forces a replan. This gives the stack the moving-region tracking that
 `cb_base_navigation` was designed for but, per §2.3, does not currently perform.
 
+**Only ED entity frames are re-resolved.** A TF frame is transformed to `map`
+**once**, when the goal is accepted, and the region is frozen there. Otherwise
+a region expressed in a frame attached to the robot, such as
+`simple_grab.py`'s laser frame (§2.4), would move with the robot and could never
+be reached. `cb_base_navigation` got this right by accident: it resolves the
+frame once, inside `getPlan`, and never again.
+
 ### 4.6 Decision 5 — the orientation constraint
 
 **HERO drives holonomically** — confirmed 2026-09-15. This matches
@@ -370,6 +395,29 @@ BehaviorTree.CPP, or Yasmin) is explicitly undecided. Therefore:
 
 Swapping the executive later touches one file.
 
+### 4.9 Decision 8 — plan-only queries and out-of-band status
+
+`NavigateTo` is not the only consumer of the planner. The ROS 1 `global_planner`
+and `local_planner` proxies in `robot_skills/base.py` are also used directly:
+
+| Use | Callers | ROS 2 replacement |
+|---|---|---|
+| plan without driving, for reachability or path length | `place_designator` (ranks placement spots by path length), `give_directions` (describes the route aloud), `door_opening`, `challenge_navigation` | `NavigateClient.compute_path(region)` |
+| cancel whatever the base is doing | `guidance`, `challenge_following_and_guiding`, `hmc_states` | `NavigateClient.cancel_all()` |
+| poll the status of a navigation started elsewhere | `guidance` (runs concurrently with the navigating state) | `NavigateClient.status` |
+| path length after arrival | `navigation.py` (`reset_pose` if > 0.5 m) | `NavigateToPose` feedback |
+
+`compute_path` goes through the same `goal_resolver` sampling as navigation and
+calls Nav2's `ComputePathToPose` action on `planner_server` directly, with no
+behavior tree. `place_designator` is the most frequent caller, once per
+placement candidate, so it goes through the same cost measurement as §9 risk 1.
+
+`cancel_all()` uses the action protocol's cancel-all-goals request, so a state
+can stop the base without holding the goal handle — which is how these callers
+use `cancelCurrentPlan()` today. `NavigateClient` is therefore **one instance
+per robot**, held on the robot object as `base.global_planner` and
+`base.local_planner` are today, not one per state.
+
 ## 5. Packages
 
 | Package | Contents | Language |
@@ -379,7 +427,7 @@ Swapping the executive later touches one file.
 | `tue_nav_goal_resolver` | resolver node: region → candidate poses, ED/TF frame resolution, `GoalUpdater` publisher | C++ |
 | `tue_nav_goal_checkers` | `RegionGoalChecker` (`nav2_core::GoalChecker` plugin) | C++ |
 | `tue_nav_bringup` | Nav2 params, BT XMLs, launch, sim/real overlays | YAML/XML |
-| `tue_nav_client` | `NavigateClient` action wrapper + error-code mapping | Python |
+| `tue_nav_client` | `NavigateClient` action wrapper, `compute_path`, `cancel_all`, error-code mapping | Python |
 | `ed_navigation` (ported) | `GetGoalConstraint` returning `ConstraintRegion` | C++ |
 | `robot_smach_states` (edited) | `NavigateTo` shim; `constraint_functions` emit structured regions | Python |
 
@@ -425,7 +473,7 @@ Each phase is independently mergeable and leaves the robot in a working state.
 | 1 | `tue_nav_constraints_interfaces` + `tue_nav_constraints` + differential test harness (§6) | exprtk-equivalence suite green over the full corpus |
 | 2 | `ed_navigation` ROS 2 port; `GetGoalConstraint` returns `ConstraintRegion` | ED emits structured regions; equivalence suite green against recorded worlds |
 | 3 | `constraint_functions` emit `ConstraintRegion`; `tue_nav_goal_resolver`; `tue_nav_goal_checkers` | Resolver publishes candidates; region goal checker passes unit tests |
-| 4 | `tue_nav_client` + `NavigateTo` shim on the **parity** BT (§4.7) | `navigate_to_*.py` subclasses pass their existing tests |
+| 4 | `tue_nav_client` + `NavigateTo` shim on the **parity** BT (§4.7); plan-only and cancel callers (§4.9) ported | `navigate_to_*.py` subclasses pass their existing tests; no caller outside `follow_operator*` touches `global_planner` / `local_planner` |
 | 5 | Switch to `navigate_to_pose_w_replanning_and_recovery.xml`; tune costmaps; look-at MPPI critic **only if** §4.6 tier 1 proves insufficient | Recovery behaviours verified in sim and on the robot |
 | 6 | Delete `cb_base_navigation`, `cb_base_navigation_msgs`; drop their `.env/targets` | No references remain — **blocked on `follow_operator`, see below** |
 
@@ -434,7 +482,8 @@ Phase 0 should not wait on them.
 
 **Phase 6 cannot complete within this spec's scope.** `follow_operator.py` and
 `follow_operator2_0.py` are the only remaining callers of `check_plan_srv`, and
-they are out of scope (§10). Phases 0–5 deliver the full `NavigateTo` migration
+they are out of scope (§10). Every other direct planner caller is ported in
+Phase 4 (§4.9). Phases 0–5 deliver the full `NavigateTo` migration
 and leave `cb_base_navigation` running solely for the follow-operator states;
 deletion happens once that separate spec lands. Plan for the two stacks to
 coexist for that interval — it is a known, bounded cost, not an oversight.
@@ -466,9 +515,18 @@ cannot validate parity. Use it for fast BT tests, not as the parity harness.
    multi-goal search. Mitigation: cap `max_candidates`, prefer analytic sampling,
    and measure in Phase 3. If the p95 planning time exceeds the 1 Hz replan
    budget, reconsider §4.3's rejected alternative. **Decide on measurement.**
-2. **`pose_constraints.py` passes a caller-supplied `frame_id`.** Which callers
-   pass something other than `map` must be enumerated in Phase 3; it determines
-   how much of §4.5 is exercised in production.
+2. ~~**`pose_constraints.py` passes a caller-supplied `frame_id`.**~~
+   **Resolved 2026-09-22.** No caller of `pose_constraints()` or
+   `NavigateToPose` passes `frame_id`; all use the `map` default. Across every
+   `PositionConstraint` built in `tue_robocup` (§2.4), the only non-`map` frame
+   in production code is `challenge_dishwasher/simple_grab.py`, which uses the
+   frame of the AMIGO-only `/amigo/torso_laser/scan` topic. That is a
+   robot-attached TF frame, not an ED entity, and it led to the freeze-on-accept
+   rule in §4.5. ED entity frames appear only in *orientation* constraints
+   (`look_at_constraints.py`). Consequence: the moving-region half of §4.5 has
+   **no current production caller**. It stays in the design because
+   `navigate_to_*` subclasses can reach it through `ed_navigation`, but Phase 3
+   may implement ED re-resolution last.
 3. **`compound_constraints` asserts equal frames.** The structured type could
    support mixed-frame intersection by transforming to `map` first. Deliberately
    not designed now — no current caller needs it.
